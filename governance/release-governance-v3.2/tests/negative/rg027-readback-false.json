@@ -1,0 +1,9 @@
+{
+  "expected": "FAIL",
+  "reason_code": "RG_027_IMMUTABLE_EVIDENCE_NOT_PROVEN",
+  "mutation": {
+    "archive_evidence": {
+      "readback_verified": false
+    }
+  }
+}

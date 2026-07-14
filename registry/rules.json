@@ -1,0 +1,771 @@
+{
+  "schema_version": "AFIMS-R.RuleRegistry.v1",
+  "version": "0.4.0",
+  "rules": [
+    {
+      "rule_id": "RG-001",
+      "title": "Intent Preservation rule 1",
+      "group": "T1",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-002",
+      "title": "Intent Preservation rule 2",
+      "group": "T1",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-003",
+      "title": "Intent Preservation rule 3",
+      "group": "T1",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-004",
+      "title": "Intent Preservation rule 4",
+      "group": "T1",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-005",
+      "title": "Intent Preservation rule 5",
+      "group": "T1",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-006",
+      "title": "Information Integrity rule 1",
+      "group": "T2",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-007",
+      "title": "Information Integrity rule 2",
+      "group": "T2",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-008",
+      "title": "Information Integrity rule 3",
+      "group": "T2",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-009",
+      "title": "Information Integrity rule 4",
+      "group": "T2",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-010",
+      "title": "Information Integrity rule 5",
+      "group": "T2",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-011",
+      "title": "Information Integrity rule 6",
+      "group": "T2",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-012",
+      "title": "Information Integrity rule 7",
+      "group": "T2",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-013",
+      "title": "Information Integrity rule 8",
+      "group": "T2",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-014",
+      "title": "Information Integrity rule 9",
+      "group": "T2",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-015",
+      "title": "Information Integrity rule 10",
+      "group": "T2",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-016",
+      "title": "Semantic Integrity rule 1",
+      "group": "T3",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-017",
+      "title": "Semantic Integrity rule 2",
+      "group": "T3",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-018",
+      "title": "Semantic Integrity rule 3",
+      "group": "T3",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-019",
+      "title": "Semantic Integrity rule 4",
+      "group": "T3",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-020",
+      "title": "Semantic Integrity rule 5",
+      "group": "T3",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-021",
+      "title": "Semantic Integrity rule 6",
+      "group": "T3",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-022",
+      "title": "Semantic Integrity rule 7",
+      "group": "T3",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-023",
+      "title": "Semantic Integrity rule 8",
+      "group": "T3",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-024",
+      "title": "Semantic Integrity rule 9",
+      "group": "T3",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-025",
+      "title": "Semantic Integrity rule 10",
+      "group": "T3",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-026",
+      "title": "Linguistic Optimization rule 1",
+      "group": "T4",
+      "severity": "S3",
+      "blocking": false,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-027",
+      "title": "Linguistic Optimization rule 2",
+      "group": "T4",
+      "severity": "S3",
+      "blocking": false,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-028",
+      "title": "Linguistic Optimization rule 3",
+      "group": "T4",
+      "severity": "S3",
+      "blocking": false,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-029",
+      "title": "Linguistic Optimization rule 4",
+      "group": "T4",
+      "severity": "S3",
+      "blocking": false,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-030",
+      "title": "Linguistic Optimization rule 5",
+      "group": "T4",
+      "severity": "S3",
+      "blocking": false,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-031",
+      "title": "Evidence Protection rule 1",
+      "group": "T5",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-032",
+      "title": "Evidence Protection rule 2",
+      "group": "T5",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-033",
+      "title": "Evidence Protection rule 3",
+      "group": "T5",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-034",
+      "title": "Evidence Protection rule 4",
+      "group": "T5",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-035",
+      "title": "Evidence Protection rule 5",
+      "group": "T5",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-036",
+      "title": "Evidence Protection rule 6",
+      "group": "T5",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-037",
+      "title": "Evidence Protection rule 7",
+      "group": "T5",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-038",
+      "title": "Evidence Protection rule 8",
+      "group": "T5",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-039",
+      "title": "Evidence Protection rule 9",
+      "group": "T5",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-040",
+      "title": "Evidence Protection rule 10",
+      "group": "T5",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-041",
+      "title": "Code Integrity rule 1",
+      "group": "T6",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-042",
+      "title": "Code Integrity rule 2",
+      "group": "T6",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-043",
+      "title": "Code Integrity rule 3",
+      "group": "T6",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-044",
+      "title": "Code Integrity rule 4",
+      "group": "T6",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-045",
+      "title": "Code Integrity rule 5",
+      "group": "T6",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-046",
+      "title": "Code Integrity rule 6",
+      "group": "T6",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-047",
+      "title": "Code Integrity rule 7",
+      "group": "T6",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-048",
+      "title": "Code Integrity rule 8",
+      "group": "T6",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-049",
+      "title": "Code Integrity rule 9",
+      "group": "T6",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-050",
+      "title": "Code Integrity rule 10",
+      "group": "T6",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-051",
+      "title": "Research Integrity rule 1",
+      "group": "T7",
+      "severity": "S3",
+      "blocking": false,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-052",
+      "title": "Research Integrity rule 2",
+      "group": "T7",
+      "severity": "S3",
+      "blocking": false,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-053",
+      "title": "Research Integrity rule 3",
+      "group": "T7",
+      "severity": "S3",
+      "blocking": false,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-054",
+      "title": "Research Integrity rule 4",
+      "group": "T7",
+      "severity": "S3",
+      "blocking": false,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-055",
+      "title": "Research Integrity rule 5",
+      "group": "T7",
+      "severity": "S3",
+      "blocking": false,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-056",
+      "title": "Research Integrity rule 6",
+      "group": "T7",
+      "severity": "S3",
+      "blocking": false,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-057",
+      "title": "Research Integrity rule 7",
+      "group": "T7",
+      "severity": "S3",
+      "blocking": false,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-058",
+      "title": "Research Integrity rule 8",
+      "group": "T7",
+      "severity": "S3",
+      "blocking": false,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-059",
+      "title": "Governance rule 1",
+      "group": "T8",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-060",
+      "title": "Governance rule 2",
+      "group": "T8",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-061",
+      "title": "Governance rule 3",
+      "group": "T8",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-062",
+      "title": "Governance rule 4",
+      "group": "T8",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-063",
+      "title": "Governance rule 5",
+      "group": "T8",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-064",
+      "title": "Governance rule 6",
+      "group": "T8",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-065",
+      "title": "Governance rule 7",
+      "group": "T8",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-066",
+      "title": "Adversarial Robustness rule 1",
+      "group": "T9",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-067",
+      "title": "Adversarial Robustness rule 2",
+      "group": "T9",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-068",
+      "title": "Adversarial Robustness rule 3",
+      "group": "T9",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-069",
+      "title": "Adversarial Robustness rule 4",
+      "group": "T9",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-070",
+      "title": "Adversarial Robustness rule 5",
+      "group": "T9",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-071",
+      "title": "Adversarial Robustness rule 6",
+      "group": "T9",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-072",
+      "title": "Adversarial Robustness rule 7",
+      "group": "T9",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-073",
+      "title": "Adversarial Robustness rule 8",
+      "group": "T9",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-074",
+      "title": "Adversarial Robustness rule 9",
+      "group": "T9",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-075",
+      "title": "Adversarial Robustness rule 10",
+      "group": "T9",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-076",
+      "title": "Final Certification rule 1",
+      "group": "T10",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-077",
+      "title": "Final Certification rule 2",
+      "group": "T10",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-078",
+      "title": "Final Certification rule 3",
+      "group": "T10",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-079",
+      "title": "Final Certification rule 4",
+      "group": "T10",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-080",
+      "title": "Final Certification rule 5",
+      "group": "T10",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-081",
+      "title": "Final Certification rule 6",
+      "group": "T10",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-082",
+      "title": "Final Certification rule 7",
+      "group": "T10",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-083",
+      "title": "Final Certification rule 8",
+      "group": "T10",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-084",
+      "title": "Final Certification rule 9",
+      "group": "T10",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    },
+    {
+      "rule_id": "RG-085",
+      "title": "Final Certification rule 10",
+      "group": "T10",
+      "severity": "S4",
+      "blocking": true,
+      "version": "1.0.0",
+      "status": "ACTIVE"
+    }
+  ]
+}

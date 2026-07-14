@@ -1,0 +1,71 @@
+{
+  "schema_version": "AFIMS-T.GroupReport.v1",
+  "group": "T3",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "executed": 10,
+  "passed": 10,
+  "failed": 0,
+  "decision": "PASS",
+  "case_results": [
+    {
+      "test_id": "T3.01",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T3_01.json",
+      "evidence_sha256": "sha256:a2b9b144b7bb36d20abd203ce905ec447a6a2fa686275f9294cf9f6268e24433"
+    },
+    {
+      "test_id": "T3.02",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T3_02.json",
+      "evidence_sha256": "sha256:c1fb0f870de74996489cc3e0afe6abd0a00c2f221ca24fb4e095da0e46b69793"
+    },
+    {
+      "test_id": "T3.03",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T3_03.json",
+      "evidence_sha256": "sha256:e3b67113aa76431e6a71ffc755a1bcafa4728a70818e94a901a545137115bf90"
+    },
+    {
+      "test_id": "T3.04",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T3_04.json",
+      "evidence_sha256": "sha256:425d953eb2797bbb1e3ea8af0266b3a7a6a242bcfa9fd57c3454b5ddccfeac2e"
+    },
+    {
+      "test_id": "T3.05",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T3_05.json",
+      "evidence_sha256": "sha256:dc76eb0c3bce97f8cfbc7ddbc87144448bb07de39049a3d7acd1585ff5dab671"
+    },
+    {
+      "test_id": "T3.06",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T3_06.json",
+      "evidence_sha256": "sha256:4d6803a71bae8e9ecde1f1c8a2d84a8e5f019f55b631c2c0ebbf1de704662f2c"
+    },
+    {
+      "test_id": "T3.07",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T3_07.json",
+      "evidence_sha256": "sha256:bcd5927340426be99b200b3e79c3abe13cb6575fb940e1a91f3bb98a5e493b1f"
+    },
+    {
+      "test_id": "T3.08",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T3_08.json",
+      "evidence_sha256": "sha256:e3c6591d1d6a616968de2adc21ee090065e1555c81910f90c498d4dbdf8a69a3"
+    },
+    {
+      "test_id": "T3.09",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T3_09.json",
+      "evidence_sha256": "sha256:933a68720370472a91210568672a223b5c293be4a499a414d81bed37621b5d09"
+    },
+    {
+      "test_id": "T3.10",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T3_10.json",
+      "evidence_sha256": "sha256:1f48b45937abaf356dce5c08623ddff29ab0ea9915ec3e8e8db889745b1d8156"
+    }
+  ]
+}

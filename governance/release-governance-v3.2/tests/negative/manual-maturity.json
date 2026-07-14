@@ -1,0 +1,9 @@
+{
+  "expected": "FAIL",
+  "mutation": {
+    "claimed": {
+      "maturity_level": "L4"
+    }
+  },
+  "reason": "Maturity is policy-derived and cannot be supplied manually."
+}

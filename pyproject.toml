@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "afims-r"
+version = "0.4.0"
+description = "AFIMS-R with executable AFIMS-T and two-phase release governance adapter"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.110",
+  "uvicorn>=0.29",
+  "pydantic>=2.6",
+  "PyYAML>=6.0"
+]
+
+[project.scripts]
+afims-r = "afims_r.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["afims_r*"]

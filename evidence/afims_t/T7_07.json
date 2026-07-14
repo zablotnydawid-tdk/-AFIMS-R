@@ -1,0 +1,37 @@
+{
+  "schema_version": "AFIMS-T.CaseEvidence.v1",
+  "system": "AFIMS-R",
+  "version": "0.4.0",
+  "test_id": "T7.07",
+  "group": "T7",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "fixture_sha256": "sha256:54ace6b0c19c79f70b9fd7b547a801e2baa24f24efc96468df1e09d56832233e",
+  "input_sha256": "sha256:4f4e6ac04bf0ada414775119c44385462e344c663e7b2fa5c38a1489ef3175e0",
+  "candidate_sha256": "sha256:083ebe6f9c27162d87a2e9e6cdfee139c90e346725df464c35ead9bd74579f13",
+  "evaluation": {
+    "test_id": "T7.07",
+    "group": "T7",
+    "validator_id": "afims-fixture-validator-v0.4.0",
+    "observed_validator_decision": "PASS",
+    "expected_validator_decision": "PASS",
+    "suite_expectation_met": true,
+    "checks": [
+      {
+        "check_type": "preserve_numbers",
+        "passed": true,
+        "message": "numeric contract satisfied",
+        "observed": {
+          "missing": [],
+          "extra": []
+        }
+      },
+      {
+        "check_type": "contains_all",
+        "passed": true,
+        "message": "required fragments present",
+        "observed": []
+      }
+    ],
+    "unresolved": 0
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "AFIMS-R.ExternalToolAvailability.v1",
+  "scope": "local_execution_environment",
+  "tools": {
+    "jq": true,
+    "opa": false,
+    "docker": false,
+    "cosign": false,
+    "mc": false
+  },
+  "external_governance_executed": false,
+  "note": "Missing tools do not weaken local AFIMS-T evidence, but block local execution of L3/L4 governance."
+}

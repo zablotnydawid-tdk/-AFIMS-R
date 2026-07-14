@@ -1,0 +1,28 @@
+{
+  "schema_version": "AFIMS-T.CaseEvidence.v1",
+  "system": "AFIMS-R",
+  "version": "0.4.0",
+  "test_id": "T1.03",
+  "group": "T1",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "fixture_sha256": "sha256:bfa5f21353bf1606f0d0e645bb27c17c95abf283b3621980ed8c5d1907354eaa",
+  "input_sha256": "sha256:dfcb5cc91ab14105ea4317e8707964b2b09288c7670981699c831c3dc5291542",
+  "candidate_sha256": "sha256:d58fdf4c38353052d3e404e4ec4ab9ee3f838912afc4c5f0527e37aec2ba08de",
+  "evaluation": {
+    "test_id": "T1.03",
+    "group": "T1",
+    "validator_id": "afims-fixture-validator-v0.4.0",
+    "observed_validator_decision": "PASS",
+    "expected_validator_decision": "PASS",
+    "suite_expectation_met": true,
+    "checks": [
+      {
+        "check_type": "contains_all",
+        "passed": true,
+        "message": "required fragments present",
+        "observed": []
+      }
+    ],
+    "unresolved": 0
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "schema_version": "AFIMS-T.FinalConfidence.v1",
+  "system": "AFIMS-R",
+  "version": "0.4.0",
+  "decision": "PASS",
+  "questions": [
+    {
+      "question_number": 1,
+      "question": "Czy zachowano pełną intencję autora?",
+      "expected_answer": "YES",
+      "observed_answer": "YES",
+      "passed": true
+    },
+    {
+      "question_number": 2,
+      "question": "Czy zachowano wszystkie fakty?",
+      "expected_answer": "YES",
+      "observed_answer": "YES",
+      "passed": true
+    },
+    {
+      "question_number": 3,
+      "question": "Czy zachowano wszystkie liczby?",
+      "expected_answer": "YES",
+      "observed_answer": "YES",
+      "passed": true
+    },
+    {
+      "question_number": 4,
+      "question": "Czy zachowano wszystkie nazwy?",
+      "expected_answer": "YES",
+      "observed_answer": "YES",
+      "passed": true
+    },
+    {
+      "question_number": 5,
+      "question": "Czy zachowano wszystkie zależności?",
+      "expected_answer": "YES",
+      "observed_answer": "YES",
+      "passed": true
+    },
+    {
+      "question_number": 6,
+      "question": "Czy zachowano wszystkie argumenty?",
+      "expected_answer": "YES",
+      "observed_answer": "YES",
+      "passed": true
+    },
+    {
+      "question_number": 7,
+      "question": "Czy zachowano wszystkie wnioski?",
+      "expected_answer": "YES",
+      "observed_answer": "YES",
+      "passed": true
+    },
+    {
+      "question_number": 8,
+      "question": "Czy zachowano stopień pewności?",
+      "expected_answer": "YES",
+      "observed_answer": "YES",
+      "passed": true
+    },
+    {
+      "question_number": 9,
+      "question": "Czy oddzielono fakty od hipotez?",
+      "expected_answer": "YES",
+      "observed_answer": "YES",
+      "passed": true
+    },
+    {
+      "question_number": 10,
+      "question": "Czy nie dodano niepotwierdzonych informacji?",
+      "expected_answer": "YES",
+      "observed_answer": "YES",
+      "passed": true
+    },
+    {
+      "question_number": 11,
+      "question": "Czy każda zmiana jest możliwa do uzasadnienia?",
+      "expected_answer": "YES",
+      "observed_answer": "YES",
+      "passed": true
+    },
+    {
+      "question_number": 12,
+      "question": "Czy przeprowadzono wszystkie wymagane testy?",
+      "expected_answer": "YES",
+      "observed_answer": "YES",
+      "passed": true
+    },
+    {
+      "question_number": 13,
+      "question": "Czy nie wystąpił żaden krytyczny błąd?",
+      "expected_answer": "YES",
+      "observed_answer": "YES",
+      "passed": true
+    },
+    {
+      "question_number": 14,
+      "question": "Czy istnieje jeszcze obiektywna poprawka zwiększająca jakość bez utraty informacji?",
+      "expected_answer": "NO",
+      "observed_answer": "NO",
+      "passed": true,
+      "scope_qualifier": "within_declared_executable_reference_fixture_scope"
+    }
+  ],
+  "tests_1_to_13_all_yes": true,
+  "test_14_no": true,
+  "test_14_method": {
+    "name": "bounded_deterministic_fixture_completeness_audit",
+    "findings": [],
+    "exhaustive_outside_declared_scope": false
+  },
+  "scope": "exact AFIMS-T executable reference fixture pack",
+  "external_certification": false,
+  "report_sha256": "sha256:77540c0df3914a9dc51bffd2a651361a0cbf85bfb509e27e4cc97b7f7fe27864"
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "AFIMS-T.CaseEvidence.v1",
+  "system": "AFIMS-R",
+  "version": "0.4.0",
+  "test_id": "T6.01",
+  "group": "T6",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "fixture_sha256": "sha256:6c7b099c2885b5e23f931dc78190768a52231b88f263de14dc8af7cd27885afc",
+  "input_sha256": "sha256:07390a8067e6feefaecb98cec12b7170adc9ec204d39abb57139ebebc4821af8",
+  "candidate_sha256": "sha256:accd4fe83ce498ebb548c4118abf99da33668f27ac510eef9f92e48a7cd01627",
+  "evaluation": {
+    "test_id": "T6.01",
+    "group": "T6",
+    "validator_id": "afims-fixture-validator-v0.4.0",
+    "observed_validator_decision": "PASS",
+    "expected_validator_decision": "PASS",
+    "suite_expectation_met": true,
+    "checks": [
+      {
+        "check_type": "python_behavior",
+        "passed": true,
+        "message": "behavior matches",
+        "observed": {
+          "returncode": 0,
+          "stdout": "5",
+          "stderr": ""
+        }
+      }
+    ],
+    "unresolved": 0
+  }
+}

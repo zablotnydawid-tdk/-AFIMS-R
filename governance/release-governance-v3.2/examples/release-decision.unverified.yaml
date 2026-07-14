@@ -1,0 +1,31 @@
+schema_version: "3.1"
+record_status: UNVERIFIED_EXAMPLE
+record_id: example-not-a-real-release
+generated_at: "2026-07-14T00:00:00Z"
+subject:
+  repository: example/example
+  commit_sha: "0000000000000000000000000000000000000000"
+  image:
+    reference: ghcr.io/example/example
+    digest: sha256:0000000000000000000000000000000000000000000000000000000000000000
+decision:
+  status: NOT_EVALUATED
+  reason_codes:
+    - EXAMPLE_ONLY
+maturity:
+  level: NONE
+confidence:
+  value: 0
+  numerator: 0
+  denominator: 0
+integrity:
+  signed: false
+  signature_verified: false
+  document_sha256: null
+archive:
+  stored: false
+  retention:
+    mode: null
+    retain_until: null
+warnings:
+  - This file is a documentation example and is not evidence of a real pipeline execution.

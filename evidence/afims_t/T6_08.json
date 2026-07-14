@@ -1,0 +1,34 @@
+{
+  "schema_version": "AFIMS-T.CaseEvidence.v1",
+  "system": "AFIMS-R",
+  "version": "0.4.0",
+  "test_id": "T6.08",
+  "group": "T6",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "fixture_sha256": "sha256:e6d25f1d33480aaff6e4561ada125903fb0d70559f539d890f5b87ba7dd39cbe",
+  "input_sha256": "sha256:6f441089b5a889ce8904ec43522ba5889eb6279a4e175eedf39b1a008c50cfcb",
+  "candidate_sha256": "sha256:5dc2abc8b0e79b329200061d47d1c8add28fe16c9560a042a385dde3f221ceaf",
+  "evaluation": {
+    "test_id": "T6.08",
+    "group": "T6",
+    "validator_id": "afims-fixture-validator-v0.4.0",
+    "observed_validator_decision": "PASS",
+    "expected_validator_decision": "PASS",
+    "suite_expectation_met": true,
+    "checks": [
+      {
+        "check_type": "python_ast",
+        "passed": true,
+        "message": "AST contract satisfied",
+        "observed": []
+      },
+      {
+        "check_type": "contains_all",
+        "passed": true,
+        "message": "required fragments present",
+        "observed": []
+      }
+    ],
+    "unresolved": 0
+  }
+}

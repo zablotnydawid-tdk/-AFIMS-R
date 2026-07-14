@@ -1,0 +1,30 @@
+{
+  "schema_version": "AFIMS-T.CaseEvidence.v1",
+  "system": "AFIMS-R",
+  "version": "0.4.0",
+  "test_id": "T3.10",
+  "group": "T3",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "fixture_sha256": "sha256:37c0f199b81e2a35318eaa9a3ac85943d762209ff7070a6c73153350e51a829b",
+  "input_sha256": "sha256:c9f6bc05766bab89ec207b34a0c7df51c94a173f5cc03e9dd227a8f95a5b7129",
+  "candidate_sha256": "sha256:ff47983a0117bdcd18456e01ba33771223e87afc8e12de2d2af4528103bb87e5",
+  "evaluation": {
+    "test_id": "T3.10",
+    "group": "T3",
+    "validator_id": "afims-fixture-validator-v0.4.0",
+    "observed_validator_decision": "FAIL",
+    "expected_validator_decision": "FAIL",
+    "suite_expectation_met": true,
+    "checks": [
+      {
+        "check_type": "contains_all",
+        "passed": false,
+        "message": "required fragments missing",
+        "observed": [
+          "Wzrost napięcia powoduje wyłączenie falownika"
+        ]
+      }
+    ],
+    "unresolved": 0
+  }
+}

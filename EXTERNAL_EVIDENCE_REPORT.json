@@ -1,0 +1,40 @@
+{
+  "schema_version": "AFIMS-R.ExternalEvidenceReport.v1",
+  "generated_at": "2026-07-15T00:00:00Z",
+  "input_zip_sha256": "b4eb43bd9225a188197b57d2d70b4152f2bf7196a30ddb189c045d71d188a284",
+  "embedded_governance_zip_sha256": "c9349dc606505dce02eed1cf116d4d91101aadb5d8cffeacdcc8d96fcbb8fb1f",
+  "repository": null,
+  "commit_sha": null,
+  "afims_check": {
+    "run_id": null,
+    "run_url": null,
+    "conclusion": "NOT_EXECUTED"
+  },
+  "release_governance": {
+    "run_id": null,
+    "run_url": null,
+    "conclusion": "NOT_EXECUTED"
+  },
+  "rg_026": "NOT_EXECUTED",
+  "rg_027": "NOT_EXECUTED",
+  "minio_compliance_readback": "NOT_EXECUTED",
+  "opa_decision": "NOT_EXECUTED",
+  "cosign_verification": "NOT_EXECUTED",
+  "protected_environment_approvals": "NOT_VERIFIED",
+  "external_gate_decision": "BLOCKED",
+  "governance_maturity": "NONE",
+  "l3_granted": false,
+  "l4_granted": false,
+  "unresolved": [
+    "GITHUB_REPOSITORY not provided",
+    "release-archive environment not verified",
+    "release-certification environment not verified",
+    "MINIO_ENDPOINT secret not verified",
+    "MINIO_ACCESS_KEY secret not verified",
+    "MINIO_SECRET_KEY secret not verified",
+    "MINIO_BUCKET variable not verified",
+    "COSIGN_CERTIFICATE_IDENTITY_REGEXP variable not verified",
+    "COSIGN_CERTIFICATE_OIDC_ISSUER variable not verified",
+    "MinIO Object Lock COMPLIANCE retention not verified"
+  ]
+}

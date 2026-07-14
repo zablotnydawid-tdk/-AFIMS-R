@@ -1,0 +1,9 @@
+{
+  "expected": "FAIL",
+  "mutation": {
+    "claimed": {
+      "confidence": 100
+    }
+  },
+  "reason": "Confidence is a derived value and cannot be supplied manually."
+}

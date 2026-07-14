@@ -1,0 +1,28 @@
+{
+  "schema_version": "AFIMS-T.CaseEvidence.v1",
+  "system": "AFIMS-R",
+  "version": "0.4.0",
+  "test_id": "T8.04",
+  "group": "T8",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "fixture_sha256": "sha256:58ad82aa1d80b4c5e24ef0c5b1ecd1c2e68f747b26a6df11b4ababf9fdb2d9dd",
+  "input_sha256": "sha256:c2a1febd74db891493a0de5dce7ee82fc6c19430dc7d5549b74fd0ba9bb63984",
+  "candidate_sha256": "sha256:961ca6405f44f4621ff800a1585602b1765805c91498bcc2db36d493518e291c",
+  "evaluation": {
+    "test_id": "T8.04",
+    "group": "T8",
+    "validator_id": "afims-fixture-validator-v0.4.0",
+    "observed_validator_decision": "PASS",
+    "expected_validator_decision": "PASS",
+    "suite_expectation_met": true,
+    "checks": [
+      {
+        "check_type": "hash_match",
+        "passed": true,
+        "message": "hash matches",
+        "observed": "sha256:1797751b04975361e6ed0bd71feeb03a5d750d4b00a0147c7e4dbf1a24f7ac11"
+      }
+    ],
+    "unresolved": 0
+  }
+}

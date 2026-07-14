@@ -1,0 +1,5 @@
+{
+  "expected": "FAIL",
+  "reason_code": "RG_026_TRUST_CHAIN_INCONSISTENT",
+  "mutation": "Remove RG-026 gate or set status != PASS."
+}

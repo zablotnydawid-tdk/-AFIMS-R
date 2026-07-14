@@ -1,0 +1,15 @@
+{
+  "expected": "FAIL",
+  "mutation": {
+    "release_gates": [
+      {
+        "id": "tests",
+        "mandatory": true,
+        "severity": "CRITICAL",
+        "status": "FAIL",
+        "evidence_ref": "evidence/tests.json"
+      }
+    ]
+  },
+  "expected_confidence": 0
+}

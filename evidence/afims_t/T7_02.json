@@ -1,0 +1,31 @@
+{
+  "schema_version": "AFIMS-T.CaseEvidence.v1",
+  "system": "AFIMS-R",
+  "version": "0.4.0",
+  "test_id": "T7.02",
+  "group": "T7",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "fixture_sha256": "sha256:4108cd6218e1b252e2dcc01dbb0848177b5a273b2a68587c3ca908ae2de00f42",
+  "input_sha256": "sha256:142a1c8aee5d990a670304e7aad8a98db368fbdbd821abfa58100ebd4b338987",
+  "candidate_sha256": "sha256:bd8bbb0b35d20670ce03d9bdfedd258b69f3ea0f72cb50df0e4787d93422f6d2",
+  "evaluation": {
+    "test_id": "T7.02",
+    "group": "T7",
+    "validator_id": "afims-fixture-validator-v0.4.0",
+    "observed_validator_decision": "FAIL",
+    "expected_validator_decision": "FAIL",
+    "suite_expectation_met": true,
+    "checks": [
+      {
+        "check_type": "contains_none",
+        "passed": false,
+        "message": "prohibited fragments found",
+        "observed": [
+          "DOI:10.9999/fake.2026.001",
+          "Kowalski 2026"
+        ]
+      }
+    ],
+    "unresolved": 0
+  }
+}

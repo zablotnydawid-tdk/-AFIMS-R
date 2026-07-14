@@ -1,0 +1,32 @@
+{
+  "schema_version": "AFIMS-T.CaseEvidence.v1",
+  "system": "AFIMS-R",
+  "version": "0.4.0",
+  "test_id": "T8.07",
+  "group": "T8",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "fixture_sha256": "sha256:30031c74ef58870571ec44ed768ff42c36510422851228b53bd08830f6f72997",
+  "input_sha256": "sha256:ef8ac80f9e2e1efebab6b65d2944bbc1a7b1ae55f9a1078e9fc815218c5b44c6",
+  "candidate_sha256": "sha256:60a1a22186bea9120dda5e57f0585ddae118c4c70dc64f8d6cdc0e783bb193fc",
+  "evaluation": {
+    "test_id": "T8.07",
+    "group": "T8",
+    "validator_id": "afims-fixture-validator-v0.4.0",
+    "observed_validator_decision": "FAIL",
+    "expected_validator_decision": "FAIL",
+    "suite_expectation_met": true,
+    "checks": [
+      {
+        "check_type": "identity_separation",
+        "passed": false,
+        "message": "role identity collision",
+        "observed": {
+          "generator": "service-same",
+          "validator": "validator-service",
+          "certifier": "service-same"
+        }
+      }
+    ],
+    "unresolved": 0
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "AFIMS-T.CaseEvidence.v1",
+  "system": "AFIMS-R",
+  "version": "0.4.0",
+  "test_id": "T6.07",
+  "group": "T6",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "fixture_sha256": "sha256:f58f4fa8bd7dac95a22038a3d94b4df00198a609ed2be8d63e79868028ee2a22",
+  "input_sha256": "sha256:b56cdd534a165ed4c9eadd346d031788119e83becfd4b1bf248789dc2e0f01cd",
+  "candidate_sha256": "sha256:4c0f024dca7c8753742bfbe89f3b2b01b13e83dc1196b54ae84ce5104a1a08f2",
+  "evaluation": {
+    "test_id": "T6.07",
+    "group": "T6",
+    "validator_id": "afims-fixture-validator-v0.4.0",
+    "observed_validator_decision": "FAIL",
+    "expected_validator_decision": "FAIL",
+    "suite_expectation_met": true,
+    "checks": [
+      {
+        "check_type": "regex_none",
+        "passed": false,
+        "message": "prohibited patterns matched",
+        "observed": [
+          "API_KEY\\s*=\\s*['\"]secret"
+        ]
+      }
+    ],
+    "unresolved": 0
+  }
+}

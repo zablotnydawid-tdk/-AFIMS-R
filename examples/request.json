@@ -1,0 +1,22 @@
+{
+  "contract": {
+    "contract_id": "vc_example",
+    "validation_mode": "PRESERVE",
+    "required_format": "text",
+    "generator_id": "generator-service-01",
+    "certifier_id": "certifier-service-01"
+  },
+  "source": {
+    "artifact_id": "src_001",
+    "content": "Falownik może wyłączyć się przy napięciu 253 V. Nie wykazano uszkodzenia urządzenia."
+  },
+  "answer": {
+    "artifact_id": "ans_001",
+    "content": "Falownik może wyłączyć się przy napięciu 253 V. Nie wykazano uszkodzenia urządzenia."
+  },
+  "generator": {
+    "role": "GENERATOR",
+    "service_id": "generator-service-01",
+    "self_certification": false
+  }
+}

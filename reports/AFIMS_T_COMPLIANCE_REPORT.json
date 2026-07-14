@@ -1,0 +1,101 @@
+{
+  "schema_version": "AFIMS-T.ComplianceReport.v1",
+  "system": "AFIMS-R",
+  "version": "0.4.0",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "fixture_contract": "COMPLETE",
+  "summary": {
+    "mapped": 85,
+    "complete_fixtures": 85,
+    "executed": 85,
+    "passed": 85,
+    "failed": 0,
+    "unresolved": 0,
+    "valid_evidence": 85,
+    "invalid_evidence_hashes": 0
+  },
+  "groups": {
+    "T1": {
+      "executed": 5,
+      "passed": 5,
+      "failed": 0,
+      "decision": "PASS"
+    },
+    "T2": {
+      "executed": 10,
+      "passed": 10,
+      "failed": 0,
+      "decision": "PASS"
+    },
+    "T3": {
+      "executed": 10,
+      "passed": 10,
+      "failed": 0,
+      "decision": "PASS"
+    },
+    "T4": {
+      "executed": 5,
+      "passed": 5,
+      "failed": 0,
+      "decision": "PASS"
+    },
+    "T5": {
+      "executed": 10,
+      "passed": 10,
+      "failed": 0,
+      "decision": "PASS"
+    },
+    "T6": {
+      "executed": 10,
+      "passed": 10,
+      "failed": 0,
+      "decision": "PASS"
+    },
+    "T7": {
+      "executed": 8,
+      "passed": 8,
+      "failed": 0,
+      "decision": "PASS"
+    },
+    "T8": {
+      "executed": 7,
+      "passed": 7,
+      "failed": 0,
+      "decision": "PASS"
+    },
+    "T9": {
+      "executed": 10,
+      "passed": 10,
+      "failed": 0,
+      "decision": "PASS"
+    },
+    "T10": {
+      "executed": 10,
+      "passed": 10,
+      "failed": 0,
+      "decision": "PASS"
+    }
+  },
+  "certification": {
+    "system": "AFIMS-R",
+    "version": "0.4.0",
+    "scope": "AFIMS-T executable reference fixture conformance",
+    "decision": "PASS",
+    "reason_codes": [
+      "ALL_CERTIFICATION_GATES_PASSED"
+    ],
+    "suite_manifest_sha256": "sha256:1029550e7bd74d9ce862c857dc7df3481b9af27bbecc42a925595582844777b2",
+    "results_sha256": "sha256:33931d1585194435eef14de2a7bdad1eb7b7394b0d61b53fa94877c500fca05e",
+    "evidence_manifest_sha256": "sha256:7fb2368b3d6651c2829cd7a9ac7914deeb4a1e322b59a1e16e0d43ea66aeb4ac",
+    "certifier_identity": "afims-independent-suite-certifier-v0.4.0",
+    "external_certification": false,
+    "certificate_sha256": "sha256:58dd3c4a10e0e240e67a7157e01939ca4bc6b0e574c0f3603d88c3580b34c1a0"
+  },
+  "declaration_boundary": {
+    "reference_fixture_conformance": "PASS",
+    "external_certification": "NOT_CLAIMED",
+    "production_domain_validation": "NOT_PROVEN",
+    "universal_hallucination_detection": "NOT_CLAIMED"
+  },
+  "report_sha256": "sha256:e9c437ed43b29e499e91dee057c47fc7ebed3618aafe5d4bf2f4e3e63064ea09"
+}

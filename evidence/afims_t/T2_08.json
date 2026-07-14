@@ -1,0 +1,35 @@
+{
+  "schema_version": "AFIMS-T.CaseEvidence.v1",
+  "system": "AFIMS-R",
+  "version": "0.4.0",
+  "test_id": "T2.08",
+  "group": "T2",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "fixture_sha256": "sha256:96dc021d941c931787df3a6feddcd136b582b42d8268385a97f00ce8f5ca05dc",
+  "input_sha256": "sha256:85705069b2308159c447b4938c4880403957c1eb7b88a37718e9f9a06f472820",
+  "candidate_sha256": "sha256:70d1894bc39b93e1058af16666f3bd04cce567d5212664b26f74d0d7230298b3",
+  "evaluation": {
+    "test_id": "T2.08",
+    "group": "T2",
+    "validator_id": "afims-fixture-validator-v0.4.0",
+    "observed_validator_decision": "FAIL",
+    "expected_validator_decision": "FAIL",
+    "suite_expectation_met": true,
+    "checks": [
+      {
+        "check_type": "preserve_numbers",
+        "passed": false,
+        "message": "numeric contract violated",
+        "observed": {
+          "missing": [
+            "252,9 V",
+            "253,4 V",
+            "253,8 V"
+          ],
+          "extra": []
+        }
+      }
+    ],
+    "unresolved": 0
+  }
+}

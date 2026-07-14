@@ -1,0 +1,59 @@
+{
+  "schema_version": "AFIMS-T.GroupReport.v1",
+  "group": "T7",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "executed": 8,
+  "passed": 8,
+  "failed": 0,
+  "decision": "PASS",
+  "case_results": [
+    {
+      "test_id": "T7.01",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T7_01.json",
+      "evidence_sha256": "sha256:dbd14a56fbe72d69dfec15ed300a2647fbac49de5cf5b71435772dd9b08d078e"
+    },
+    {
+      "test_id": "T7.02",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T7_02.json",
+      "evidence_sha256": "sha256:e4e4205304f52941d6365e5dccdf87c6de06cd4e364f7e017f3c9e29cb2db7dc"
+    },
+    {
+      "test_id": "T7.03",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T7_03.json",
+      "evidence_sha256": "sha256:c27d547022d86247e9ab94a12a51ebc5ad17c886e7eff28d00fc20f0688eceb4"
+    },
+    {
+      "test_id": "T7.04",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T7_04.json",
+      "evidence_sha256": "sha256:64bd7ea5d89b014525cde71134bc1be748bdc931d6b3cbce468ccf4a3829faa2"
+    },
+    {
+      "test_id": "T7.05",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T7_05.json",
+      "evidence_sha256": "sha256:2437cdcbc9cb513bbae81cbb0f98ce2698ec0bdd37bc7ea0566a26a85491dfdc"
+    },
+    {
+      "test_id": "T7.06",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T7_06.json",
+      "evidence_sha256": "sha256:e8a7e7e671d804339e5b8bb8f51b09fecc3e646d7b7251968ba2753cc87dd83e"
+    },
+    {
+      "test_id": "T7.07",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T7_07.json",
+      "evidence_sha256": "sha256:392fb1245b5e3c68dbf6a007dd446ea885991933af9c7add0a505b1517286a05"
+    },
+    {
+      "test_id": "T7.08",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T7_08.json",
+      "evidence_sha256": "sha256:46c527f4689bdd527617c5486d9d89c30ce61176c6ff25c86ee70734196a0c32"
+    }
+  ]
+}

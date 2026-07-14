@@ -1,0 +1,31 @@
+{
+  "schema_version": "AFIMS-T.CaseEvidence.v1",
+  "system": "AFIMS-R",
+  "version": "0.4.0",
+  "test_id": "T3.08",
+  "group": "T3",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "fixture_sha256": "sha256:0c81ef1b710e73e461a06fb6a15022d84b59ed331255dd68ef1718bf122c37ca",
+  "input_sha256": "sha256:16dd00ffe623af565847a0d494dac3b7bf655f0b86a95854be1e7447dc3435e3",
+  "candidate_sha256": "sha256:89d50367baf36401dd51671130f91bc7d315cfffe20eecd67455b6f192f4890a",
+  "evaluation": {
+    "test_id": "T3.08",
+    "group": "T3",
+    "validator_id": "afims-fixture-validator-v0.4.0",
+    "observed_validator_decision": "FAIL",
+    "expected_validator_decision": "FAIL",
+    "suite_expectation_met": true,
+    "checks": [
+      {
+        "check_type": "engine_verdict",
+        "passed": false,
+        "message": "core engine rejected candidate",
+        "observed": {
+          "observed": "FAIL",
+          "report_hash": "sha256:d9b1583719a9c038bc64ebd60d35297d0f13763cb7ba73b37b4b55652d37da9d"
+        }
+      }
+    ],
+    "unresolved": 0
+  }
+}

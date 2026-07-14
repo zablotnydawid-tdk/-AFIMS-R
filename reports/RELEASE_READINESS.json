@@ -1,0 +1,30 @@
+{
+  "schema_version": "AFIMS-R.ReleaseReadiness.v1",
+  "system": "AFIMS-R",
+  "version": "0.4.0",
+  "local_evidence_decision": "PASS",
+  "release_status": "READY_FOR_CI",
+  "local_gates": {
+    "AFIMS-T-85": "PASS",
+    "FINAL-CONFIDENCE-14": "PASS",
+    "RELEASE-MANIFEST": "PASS"
+  },
+  "external_gates": {
+    "RG-026": "NOT_EXECUTED",
+    "MINIO_WORM_UPLOAD": "NOT_EXECUTED",
+    "MINIO_READBACK": "NOT_EXECUTED",
+    "RG-027": "NOT_EXECUTED",
+    "OPA_FINAL_CERTIFICATION": "NOT_EXECUTED",
+    "COSIGN_SIGNATURE": "NOT_EXECUTED"
+  },
+  "governance_maturity": "NONE",
+  "l3_granted": false,
+  "l4_granted": false,
+  "reason": "L3/L4 require execution of the external two-phase Release Governance v3.2 pipeline.",
+  "report_sha256": "sha256:d3b601a95a833cec608d7e8881630ed5d5ce8e318e0d65b87b10cdce6a6c5156",
+  "release_verification": {
+    "decision": "PASS",
+    "evidence_files_checked": 85,
+    "failures": []
+  }
+}

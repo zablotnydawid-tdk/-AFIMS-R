@@ -1,0 +1,293 @@
+name: Release Governance v3.2
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+
+concurrency:
+  group: release-governance-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  IMAGE: ghcr.io/${{ github.repository }}
+  MINIO_BUCKET: ${{ vars.MINIO_BUCKET }}
+  OPA_VERSION: v1.18.2
+  OPA_LINUX_AMD64_STATIC_SHA256: 9903e5125ac281104f2c4b7371d10cc3b74a98933743fcbfc174f9bf0ab20de8
+  MC_RELEASE: RELEASE.2025-08-13T08-35-41Z
+  MC_LINUX_AMD64_SHA256: 01f866e9c5f9b87c2b09116fa5d7c06695b106242d829a8bb32990c00312e891
+
+jobs:
+  generate-and-validate:
+    runs-on: ubuntu-latest
+    outputs:
+      digest: ${{ steps.image.outputs.digest }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+
+      - name: Assert exact commit
+        run: test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+
+      - name: Install validator tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq python3-pip
+          pip install --disable-pip-version-check jsonschema==4.25.1
+          curl -fsSL -o /usr/local/bin/opa "https://github.com/open-policy-agent/opa/releases/download/${OPA_VERSION}/opa_linux_amd64_static"
+          echo "${OPA_LINUX_AMD64_STATIC_SHA256}  /usr/local/bin/opa" | sha256sum -c -
+          chmod +x /usr/local/bin/opa
+
+      - name: Run project tests
+        run: |
+          mkdir -p evidence
+          test -x ./scripts/test.sh
+          ./scripts/test.sh | tee evidence/tests.log
+
+      - name: Build and push exact image
+        id: image
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+          docker build --label org.opencontainers.image.revision="$GITHUB_SHA" -t "$IMAGE:$GITHUB_SHA" .
+          docker push "$IMAGE:$GITHUB_SHA"
+          digest=$(docker inspect --format='{{index .RepoDigests 0}}' "$IMAGE:$GITHUB_SHA" | cut -d@ -f2)
+          test -n "$digest"
+          echo "digest=$digest" >> "$GITHUB_OUTPUT"
+
+      - uses: anchore/sbom-action@e22c389904149dbc22b58101806040fa8d37a610
+        with:
+          image: ${{ env.IMAGE }}@${{ steps.image.outputs.digest }}
+          format: spdx-json
+          output-file: evidence/sbom.spdx.json
+
+      - name: Generate provenance evidence
+        run: |
+          jq -n \
+            --arg repository "$GITHUB_REPOSITORY" \
+            --arg commit "$GITHUB_SHA" \
+            --arg image "$IMAGE" \
+            --arg digest "${{ steps.image.outputs.digest }}" \
+            --arg run_id "$GITHUB_RUN_ID" \
+            '{repository:$repository,commit_sha:$commit,
+              image:{reference:$image,digest:$digest},github_run_id:$run_id}' \
+            > evidence/provenance.json
+
+      - uses: aquasecurity/trivy-action@c07df6fec6fa692e6fd1200d50aaa1fdd66f03c8
+        with:
+          image-ref: ${{ env.IMAGE }}@${{ steps.image.outputs.digest }}
+          format: json
+          output: evidence/vulnerability.json
+          severity: CRITICAL,HIGH
+          exit-code: "1"
+
+      - name: Build pre-archive input
+        run: |
+          now=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          jq -n \
+            --arg now "$now" --arg repo "$GITHUB_REPOSITORY" --arg sha "$GITHUB_SHA" \
+            --arg image "$IMAGE" --arg digest "${{ steps.image.outputs.digest }}" \
+            --arg rid "rg-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" \
+            '{
+              schema_version:"3.2",record_status:"PIPELINE_INPUT",record_id:$rid,generated_at:$now,
+              subject:{repository:$repo,commit_sha:$sha,image:{reference:$image,digest:$digest}},
+              release_gates:[
+                {id:"tests",mandatory:true,severity:"CRITICAL",status:"PASS",evidence_ref:"evidence/tests.log"},
+                {id:"sbom",mandatory:true,severity:"CRITICAL",status:"PASS",evidence_ref:"evidence/sbom.spdx.json"},
+                {id:"provenance",mandatory:true,severity:"CRITICAL",status:"PASS",evidence_ref:"evidence/provenance.json"},
+                {id:"vulnerability",mandatory:true,severity:"CRITICAL",status:"PASS",evidence_ref:"evidence/vulnerability.json"}
+              ],
+              operational_evidence:[],
+              evidence_graph:{
+                nodes:[
+                  {id:"source",type:"source"},{id:"tests",type:"test"},{id:"sbom",type:"sbom"},
+                  {id:"provenance",type:"provenance"},{id:"image",type:"artifact"},
+                  {id:"archive",type:"immutable_archive"},{id:"decision",type:"decision"}
+                ],
+                edges:[
+                  {from:"source",to:"tests"},{from:"source",to:"sbom"},{from:"source",to:"provenance"},
+                  {from:"tests",to:"image"},{from:"sbom",to:"image"},{from:"provenance",to:"image"},
+                  {from:"image",to:"archive"},{from:"archive",to:"decision"}
+                ]
+              },
+              integrity:{signed:false,signature_verified:false},
+              claimed:{}
+            }' > release-input.prearchive.json
+
+      - name: RG-026 Trust Chain Consistency
+        run: |
+          bash scripts/validate-trust-chain.sh release-input.prearchive.json evidence evidence/rg-026.json
+          test "$(jq -r .status evidence/rg-026.json)" = "PASS"
+
+      - name: Validate graph and policy tests
+        run: |
+          bash scripts/validate-evidence-graph.sh release-input.prearchive.json
+          opa test opa -v
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: generated-evidence
+          if-no-files-found: error
+          path: |
+            release-input.prearchive.json
+            evidence/
+
+  archive-and-prove:
+    needs: generate-and-validate
+    runs-on: ubuntu-latest
+    environment: release-archive
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: generated-evidence
+
+      - name: Install MinIO client
+        run: |
+          sudo apt-get update && sudo apt-get install -y jq
+          curl -fsSL "https://dl.min.io/client/mc/release/linux-amd64/archive/mc.${MC_RELEASE}" -o /usr/local/bin/mc
+          echo "${MC_LINUX_AMD64_SHA256}  /usr/local/bin/mc" | sha256sum -c -
+          chmod +x /usr/local/bin/mc
+
+      - name: Configure immutable archive
+        env:
+          MINIO_ENDPOINT: ${{ secrets.MINIO_ENDPOINT }}
+          MINIO_ACCESS_KEY: ${{ secrets.MINIO_ACCESS_KEY }}
+          MINIO_SECRET_KEY: ${{ secrets.MINIO_SECRET_KEY }}
+        run: |
+          test -n "$MINIO_BUCKET"
+          mc alias set worm "$MINIO_ENDPOINT" "$MINIO_ACCESS_KEY" "$MINIO_SECRET_KEY"
+          mc version info "worm/$MINIO_BUCKET" | grep -qi enabled
+          mc retention info --default "worm/$MINIO_BUCKET" | grep -qi compliance
+
+      - name: Upload evidence, read back, prove RG-027
+        run: |
+          prefix="${GITHUB_REPOSITORY}/${GITHUB_SHA}/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          bash scripts/archive-evidence-and-prove.sh \
+            worm "$MINIO_BUCKET" "$prefix" evidence archive-evidence.json
+          test "$(jq -r .readback_verified archive-evidence.json)" = "true"
+          test "$(jq -r .retention_mode archive-evidence.json)" = "COMPLIANCE"
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: immutable-evidence-proof
+          if-no-files-found: error
+          path: archive-evidence.json
+
+  certify-sign-finalize:
+    needs: [generate-and-validate, archive-and-prove]
+    runs-on: ubuntu-latest
+    environment: release-certification
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: generated-evidence
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: immutable-evidence-proof
+
+      - name: Install certifier tools
+        run: |
+          sudo apt-get update && sudo apt-get install -y jq python3-pip
+          pip install --disable-pip-version-check jsonschema==4.25.1 pyyaml==6.0.2
+          curl -fsSL -o /usr/local/bin/opa "https://github.com/open-policy-agent/opa/releases/download/${OPA_VERSION}/opa_linux_amd64_static"
+          echo "${OPA_LINUX_AMD64_STATIC_SHA256}  /usr/local/bin/opa" | sha256sum -c -
+          chmod +x /usr/local/bin/opa
+          curl -fsSL "https://dl.min.io/client/mc/release/linux-amd64/archive/mc.${MC_RELEASE}" -o /usr/local/bin/mc
+          echo "${MC_LINUX_AMD64_SHA256}  /usr/local/bin/mc" | sha256sum -c -
+          chmod +x /usr/local/bin/mc
+      - uses: sigstore/cosign-installer@398d4b0eeef1380460a10c8013a76f728fb906ac
+
+      - name: Assemble final policy input
+        run: |
+          bash scripts/assemble-final-input.sh \
+            release-input.prearchive.json evidence/rg-026.json archive-evidence.json release-input.final.json
+
+      - name: Validate final schema and DAG
+        run: |
+          python3 - <<'PY'
+          import json
+          from jsonschema import Draft202012Validator, FormatChecker
+          s=json.load(open("schemas/release-decision.schema.json"))
+          d=json.load(open("release-input.final.json"))
+          Draft202012Validator(s, format_checker=FormatChecker()).validate(d)
+          PY
+          bash scripts/validate-evidence-graph.sh release-input.final.json
+
+      - name: Final OPA certification
+        run: |
+          bash scripts/calculate-confidence.sh release-input.final.json metrics.json
+          opa eval --format=json --data opa/release_decision.rego --input release-input.final.json \
+            'data.afims.release.result' > opa-result.json
+          test "$(jq -r '.result[0].expressions[0].value.decision.status' opa-result.json)" = "PASS"
+          maturity=$(jq -r '.result[0].expressions[0].value.maturity.level' opa-result.json)
+          test "$maturity" = "L3" -o "$maturity" = "L4"
+
+      - name: Build canonical signed payload
+        run: |
+          bash scripts/build-release-decision.sh \
+            release-input.final.json metrics.json opa-result.json release-decision.precanonical.json
+          python3 scripts/canonicalize.py release-decision.precanonical.json release-decision.json
+          # A document cannot contain its own final SHA-256 without a recursive definition.
+          # The authoritative digest is therefore detached in release-decision.sha256
+          # and covered together with the canonical JSON by the archived evidence set.
+          sha256sum release-decision.json > release-decision.sha256
+          python3 - <<'PY'
+          import json, yaml
+          d=json.load(open("release-decision.json"))
+          with open("release-decision.yaml","w") as f:
+              yaml.safe_dump(d,f,sort_keys=False,allow_unicode=True)
+          PY
+
+      - name: Keyless Cosign signature and immediate verification
+        env:
+          COSIGN_YES: "true"
+        run: |
+          cosign sign-blob --bundle release-decision.sigstore.json release-decision.json
+          cosign verify-blob \
+            --bundle release-decision.sigstore.json \
+            --certificate-identity-regexp '${{ vars.COSIGN_CERTIFICATE_IDENTITY_REGEXP }}' \
+            --certificate-oidc-issuer '${{ vars.COSIGN_CERTIFICATE_OIDC_ISSUER }}' \
+            release-decision.json
+
+      - name: Archive final certified record and verify read-back
+        env:
+          MINIO_ENDPOINT: ${{ secrets.MINIO_ENDPOINT }}
+          MINIO_ACCESS_KEY: ${{ secrets.MINIO_ACCESS_KEY }}
+          MINIO_SECRET_KEY: ${{ secrets.MINIO_SECRET_KEY }}
+        run: |
+          mc alias set worm "$MINIO_ENDPOINT" "$MINIO_ACCESS_KEY" "$MINIO_SECRET_KEY"
+          prefix="${GITHUB_REPOSITORY}/${GITHUB_SHA}/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/final"
+          for f in release-decision.json release-decision.yaml release-decision.sha256 \
+                   release-decision.sigstore.json opa-result.json metrics.json archive-evidence.json; do
+            mc cp --attr "commit=${GITHUB_SHA};run=${GITHUB_RUN_ID}" "$f" "worm/$MINIO_BUCKET/$prefix/$f"
+          done
+          expected=$(awk '{print $1}' release-decision.sha256)
+          bash scripts/verify-minio-retention.sh \
+            worm "$MINIO_BUCKET/$prefix/release-decision.json" "$expected"
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: certified-release-decision
+          if-no-files-found: error
+          path: |
+            release-decision.json
+            release-decision.yaml
+            release-decision.sha256
+            release-decision.sigstore.json
+            opa-result.json
+            metrics.json
+            archive-evidence.json

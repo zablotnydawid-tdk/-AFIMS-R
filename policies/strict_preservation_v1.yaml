@@ -1,0 +1,17 @@
+schema_version: AFIMS-R.ValidationPolicy.v1
+policy_id: strict_preservation_v1
+mode: PRESERVE
+fail_closed: true
+hard_gates:
+  structural_status: PASS
+  irr_minimum: 100
+  nir_minimum: 100
+  neir_minimum: 100
+  unsupported_addition_count: 0
+  semantic_drift_count: 0
+  s4_failure_count: 0
+  certifier_independence: PROVEN
+security_policy:
+  generator_self_certification: BLOCK
+  unsigned_validator_result: BLOCK
+  changed_artifact_after_snapshot: BLOCK

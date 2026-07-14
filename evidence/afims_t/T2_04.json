@@ -1,0 +1,31 @@
+{
+  "schema_version": "AFIMS-T.CaseEvidence.v1",
+  "system": "AFIMS-R",
+  "version": "0.4.0",
+  "test_id": "T2.04",
+  "group": "T2",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "fixture_sha256": "sha256:dffc344849526622ec3631fba6de17e900d0aa6b6993e447cc7ac8ed5690cf6e",
+  "input_sha256": "sha256:64e4ed006b3845f63c0c43816f8914b539938d77679ce1d7e92cc2290112431c",
+  "candidate_sha256": "sha256:9826566209b7afe337cdfa740dde028aad85def986888bb5b8fa8b800f2f8886",
+  "evaluation": {
+    "test_id": "T2.04",
+    "group": "T2",
+    "validator_id": "afims-fixture-validator-v0.4.0",
+    "observed_validator_decision": "FAIL",
+    "expected_validator_decision": "FAIL",
+    "suite_expectation_met": true,
+    "checks": [
+      {
+        "check_type": "preserve_entities",
+        "passed": false,
+        "message": "entity missing or substituted",
+        "observed": [
+          "TDK&ProService",
+          "Deye"
+        ]
+      }
+    ],
+    "unresolved": 0
+  }
+}

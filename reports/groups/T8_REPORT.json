@@ -1,0 +1,53 @@
+{
+  "schema_version": "AFIMS-T.GroupReport.v1",
+  "group": "T8",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "executed": 7,
+  "passed": 7,
+  "failed": 0,
+  "decision": "PASS",
+  "case_results": [
+    {
+      "test_id": "T8.01",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T8_01.json",
+      "evidence_sha256": "sha256:3e8fa4ed3944d3e355e14e6c4d43ccf3f01fe19caa254634a5cfc9f727117aa1"
+    },
+    {
+      "test_id": "T8.02",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T8_02.json",
+      "evidence_sha256": "sha256:a9d48627dda7ef19e9925f0f097c7b13a6a34dd976d5cee569bcc5703b6db527"
+    },
+    {
+      "test_id": "T8.03",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T8_03.json",
+      "evidence_sha256": "sha256:6e56d3664346dd424d907561cba054626aaf69a9610706092bf3b06e01587816"
+    },
+    {
+      "test_id": "T8.04",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T8_04.json",
+      "evidence_sha256": "sha256:a4fd23227c0f2788faa2da45f06eed00e14876ca438dc54049cd037426d83f2d"
+    },
+    {
+      "test_id": "T8.05",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T8_05.json",
+      "evidence_sha256": "sha256:5014bcb3eababbe10a9f327da4152b563a0c51a06bf18adcb695a0e7d671d2fa"
+    },
+    {
+      "test_id": "T8.06",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T8_06.json",
+      "evidence_sha256": "sha256:b8d551b4cc8c87d9256cf5bb053b80a02f89050c7ca82651b02f76c9b584b863"
+    },
+    {
+      "test_id": "T8.07",
+      "execution_status": "PASS",
+      "evidence_artifact": "evidence/afims_t/T8_07.json",
+      "evidence_sha256": "sha256:219d26b3db1d541c69fc3e8a44971b914a5800d7262f2437412e30193134f0c6"
+    }
+  ]
+}

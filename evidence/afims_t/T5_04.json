@@ -1,0 +1,33 @@
+{
+  "schema_version": "AFIMS-T.CaseEvidence.v1",
+  "system": "AFIMS-R",
+  "version": "0.4.0",
+  "test_id": "T5.04",
+  "group": "T5",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "fixture_sha256": "sha256:e601ee1dd3ad096b5be6dbf9e54aad50a0ffc4a4306a6e4538f523deff0a9c8c",
+  "input_sha256": "sha256:00be388763743f92141759447de52ed478ca89df879c746be620463750acc236",
+  "candidate_sha256": "sha256:45caf8c5190483125289c80a1aac930aa2eeebe9fd7800dec5b6a5f3469c81e2",
+  "evaluation": {
+    "test_id": "T5.04",
+    "group": "T5",
+    "validator_id": "afims-fixture-validator-v0.4.0",
+    "observed_validator_decision": "FAIL",
+    "expected_validator_decision": "FAIL",
+    "suite_expectation_met": true,
+    "checks": [
+      {
+        "check_type": "ordered_fragments",
+        "passed": false,
+        "message": "chronology changed",
+        "observed": [
+          0,
+          29,
+          15,
+          43
+        ]
+      }
+    ],
+    "unresolved": 0
+  }
+}

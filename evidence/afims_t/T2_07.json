@@ -1,0 +1,41 @@
+{
+  "schema_version": "AFIMS-T.CaseEvidence.v1",
+  "system": "AFIMS-R",
+  "version": "0.4.0",
+  "test_id": "T2.07",
+  "group": "T2",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "fixture_sha256": "sha256:e9e323d5af48a5a39f488e563df6061c8db32aed5640da36274a7c08aeee9b28",
+  "input_sha256": "sha256:85705069b2308159c447b4938c4880403957c1eb7b88a37718e9f9a06f472820",
+  "candidate_sha256": "sha256:8315c626853818d76d64fe157c1d8b188fbfc4d5ee5b55b3b16e832e17405b69",
+  "evaluation": {
+    "test_id": "T2.07",
+    "group": "T2",
+    "validator_id": "afims-fixture-validator-v0.4.0",
+    "observed_validator_decision": "PASS",
+    "expected_validator_decision": "PASS",
+    "suite_expectation_met": true,
+    "checks": [
+      {
+        "check_type": "preserve_numbers",
+        "passed": true,
+        "message": "numeric contract satisfied",
+        "observed": {
+          "missing": [],
+          "extra": []
+        }
+      },
+      {
+        "check_type": "ordered_fragments",
+        "passed": true,
+        "message": "chronology preserved",
+        "observed": [
+          0,
+          18,
+          33
+        ]
+      }
+    ],
+    "unresolved": 0
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "AFIMS-T.CaseEvidence.v1",
+  "system": "AFIMS-R",
+  "version": "0.4.0",
+  "test_id": "T5.06",
+  "group": "T5",
+  "executed_at": "2026-07-14T21:37:17.587805+00:00",
+  "fixture_sha256": "sha256:dd9c2dad64d51254866d43a2c43d1578929a35b8217f2b8622e7c87856e794aa",
+  "input_sha256": "sha256:72d6422e77f182ece90008af8ab40a841b4ea6afd04d19123ba3ab6a1a9ddda7",
+  "candidate_sha256": "sha256:75a2658d9c6704b3a0adfee74cce7c033d7cbcaaf319a1b5d800c16f66060509",
+  "evaluation": {
+    "test_id": "T5.06",
+    "group": "T5",
+    "validator_id": "afims-fixture-validator-v0.4.0",
+    "observed_validator_decision": "FAIL",
+    "expected_validator_decision": "FAIL",
+    "suite_expectation_met": true,
+    "checks": [
+      {
+        "check_type": "preserve_entities",
+        "passed": false,
+        "message": "entity missing or substituted",
+        "observed": [
+          "ZTSI-20260713-001"
+        ]
+      }
+    ],
+    "unresolved": 0
+  }
+}

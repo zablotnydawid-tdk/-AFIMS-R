@@ -1,0 +1,127 @@
+{
+  "schema_version": "3.2",
+  "record_status": "PIPELINE_INPUT",
+  "record_id": "rg-example-001",
+  "generated_at": "2026-07-14T20:00:00Z",
+  "subject": {
+    "repository": "owner/repository",
+    "commit_sha": "0123456789abcdef0123456789abcdef01234567",
+    "image": {
+      "reference": "ghcr.io/owner/repository",
+      "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  },
+  "release_gates": [
+    {
+      "id": "tests",
+      "mandatory": true,
+      "severity": "CRITICAL",
+      "status": "PASS",
+      "evidence_ref": "evidence/tests.json"
+    },
+    {
+      "id": "sbom",
+      "mandatory": true,
+      "severity": "CRITICAL",
+      "status": "PASS",
+      "evidence_ref": "evidence/sbom.spdx.json"
+    },
+    {
+      "id": "provenance",
+      "mandatory": true,
+      "severity": "CRITICAL",
+      "status": "PASS",
+      "evidence_ref": "evidence/provenance.json"
+    },
+    {
+      "id": "vulnerability",
+      "mandatory": true,
+      "severity": "CRITICAL",
+      "status": "PASS",
+      "evidence_ref": "evidence/vulnerability.json"
+    },
+    {
+      "id": "RG-026",
+      "mandatory": true,
+      "severity": "CRITICAL",
+      "status": "PASS",
+      "evidence_ref": "evidence/rg-026.json"
+    },
+    {
+      "id": "RG-027",
+      "mandatory": true,
+      "severity": "CRITICAL",
+      "status": "PASS",
+      "evidence_ref": "archive-evidence.json"
+    }
+  ],
+  "operational_evidence": [
+    {
+      "id": "deployment-health",
+      "mandatory_for_l4": true,
+      "status": "VERIFIED",
+      "release_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "environment": "production",
+      "issued_at": "2026-07-14T20:05:00Z",
+      "valid_until": "2026-07-15T20:05:00Z",
+      "verification": {
+        "mechanism": "signed-probe",
+        "verified": true
+      }
+    }
+  ],
+  "evidence_graph": {
+    "nodes": [
+      {
+        "id": "source",
+        "type": "source"
+      },
+      {
+        "id": "tests",
+        "type": "test"
+      },
+      {
+        "id": "image",
+        "type": "artifact"
+      },
+      {
+        "id": "decision",
+        "type": "decision"
+      }
+    ],
+    "edges": [
+      {
+        "from": "source",
+        "to": "tests"
+      },
+      {
+        "from": "tests",
+        "to": "image"
+      },
+      {
+        "from": "image",
+        "to": "decision"
+      }
+    ]
+  },
+  "integrity": {
+    "signed": false,
+    "signature_verified": false
+  },
+  "claimed": {},
+  "archive_evidence": {
+    "prefix": "owner/repository/0123456789abcdef0123456789abcdef01234567/example",
+    "manifest_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "objects": [
+      {
+        "path": "evidence/tests.log",
+        "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "retention_verified": true
+      }
+    ],
+    "versioning_enabled": true,
+    "object_lock_enabled": true,
+    "retention_mode": "COMPLIANCE",
+    "readback_verified": true
+  }
+}
