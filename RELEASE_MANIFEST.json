@@ -13,8 +13,8 @@
     },
     {
       "path": ".github/workflows/release-governance.yml",
-      "size": 15236,
-      "sha256": "1eea070cebccbafc9a9aa1712e4152c83a0b432b58084046366f2b8a013c84bf"
+      "size": 16051,
+      "sha256": "15b242186078a79ab24d37feb1ff95009259cab4794c1be92a1b1af58e56af16"
     },
     {
       "path": ".gitignore",
