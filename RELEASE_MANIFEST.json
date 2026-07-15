@@ -63,13 +63,13 @@
     },
     {
       "path": "AFIMS_SECRET_INCIDENT_REPORT.json",
-      "size": 610,
-      "sha256": "9d3b0e1119903c045d0b18cff6b85adfed8fd3e9f6885bce89b2780b8651087f"
+      "size": 593,
+      "sha256": "70cdb9e32634bc772fb7c438c1dbbd091087336402863e4f871284693a6effa1"
     },
     {
       "path": "AFIMS_SECRET_INCIDENT_REPORT.md",
-      "size": 545,
-      "sha256": "4186f206f09c94eb5583cfafb8babcba18e82782dd4c69a07af4de12e1fcae83"
+      "size": 530,
+      "sha256": "68eb6f6c52614a32f354c03126ad413a50028b309bfc464efa56c427664e7793"
     },
     {
       "path": "Dockerfile",
