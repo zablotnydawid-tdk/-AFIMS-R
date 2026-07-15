@@ -1,0 +1,37 @@
+{
+  "verdict_input": "LOCAL_TDK_INFRASTRUCTURE_PARTIALLY_REUSABLE",
+  "objective": "AFIMS-R Local Trust Island",
+  "infra_dir": "/mnt/c/TDK/AFIMS-INFRA",
+  "container": "afims-minio",
+  "network": "afims-trust-net",
+  "volume": "afims-minio-data",
+  "bucket": "afims-release-evidence",
+  "service_account": "afims-certifier",
+  "ports": {
+    "s3_api": "127.0.0.1:9010",
+    "console": "127.0.0.1:9011"
+  },
+  "isolation": {
+    "separate_directory": "PASS",
+    "separate_compose": "PASS",
+    "separate_network": "PASS",
+    "separate_container": "PASS",
+    "separate_volume": "PASS",
+    "separate_bucket": "PASS",
+    "separate_technical_account": "PASS",
+    "no_tdk_database_connection": "PASS",
+    "no_public_minio_exposure": "PASS"
+  },
+  "protected_services_not_modified": [
+    "8010",
+    "8001",
+    "11434",
+    "3000",
+    "6379",
+    "9092",
+    "2181"
+  ],
+  "external_gate": "BLOCKED",
+  "l3_granted": false,
+  "l4_granted": false
+}

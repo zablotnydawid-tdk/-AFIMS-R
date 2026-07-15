@@ -1,0 +1,34 @@
+# Afims Local Infrastructure Preflight
+
+```yaml
+docker:
+  engine: PASS
+  compose_v1: PASS
+  compose_v2: MISSING
+resources:
+  ram_available: PASS
+  disk_available: PASS
+ports:
+  9000: PASS
+  9001: PASS
+  9010: PASS
+  9011: PASS
+existing_docker:
+  network_name_conflict: PASS
+  volume_name_conflict: PASS
+  container_name_conflict: PASS
+runner_wsl:
+  linux_x64: PASS
+  current_context_root: FAIL
+  registration_token: BLOCKED_UNVERIFIED
+object_lock_compliance_support:
+  minio_image_digest_pinned: PASS
+  object_lock_supported: PASS
+  compliance_retention_supported: PASS
+risk_to_existing_services: PASS
+external_gate: BLOCKED
+l3_granted: false
+l4_granted: false
+```
+
+No secret values are included in this report. External Gate remains BLOCKED and L3/L4 are not granted.

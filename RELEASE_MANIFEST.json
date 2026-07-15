@@ -4,7 +4,7 @@
   "version": "0.4.0",
   "created_at": "1970-01-01T00:00:00+00:00",
   "source_package_sha256": "1d1382c2905ecf9f1afe1b2600041042107877bc9d9089f10a0e44cd5a82fdd8",
-  "file_count": 175,
+  "file_count": 185,
   "files": [
     {
       "path": ".github/workflows/afims-check.yml",
@@ -13,13 +13,53 @@
     },
     {
       "path": ".github/workflows/release-governance.yml",
-      "size": 15178,
-      "sha256": "36c493676403d0f87f5eb9ffa80ded0eb1e420f86ef21d9810c3b28fb94b36bb"
+      "size": 15236,
+      "sha256": "1eea070cebccbafc9a9aa1712e4152c83a0b432b58084046366f2b8a013c84bf"
     },
     {
       "path": ".gitignore",
       "size": 38,
       "sha256": "599e8d09a18b6bac6f70ed12bf96f67e49c4d992ee2601bc173d92fbcb64b11d"
+    },
+    {
+      "path": "AFIMS_LOCAL_INFRASTRUCTURE_PREFLIGHT.json",
+      "size": 826,
+      "sha256": "84cc01c047e8ea6c84d3aa1bf13db0815c9407dbb204e66d96ecb230e5eeaaf7"
+    },
+    {
+      "path": "AFIMS_LOCAL_INFRASTRUCTURE_PREFLIGHT.md",
+      "size": 769,
+      "sha256": "f728d538dcea411052f59074d596782281525113f515933dec7848af442becfc"
+    },
+    {
+      "path": "AFIMS_LOCAL_TRUST_ISLAND_PLAN.json",
+      "size": 952,
+      "sha256": "a657887302493d83023f34ba64d79aabdebb452d6515105170b142abd95c2a3c"
+    },
+    {
+      "path": "AFIMS_LOCAL_TRUST_ISLAND_PLAN.md",
+      "size": 897,
+      "sha256": "69234b527c29bcfa9ea8af5212677605f3c982168dbc3cb5f7ccae1da737d731"
+    },
+    {
+      "path": "AFIMS_MINIO_DEPLOYMENT_REPORT.json",
+      "size": 1214,
+      "sha256": "4b5492877b46a45dacc1ce4014fc05b3fab8bafa7e626ab9ed5e33313e96cc67"
+    },
+    {
+      "path": "AFIMS_MINIO_DEPLOYMENT_REPORT.md",
+      "size": 1164,
+      "sha256": "77524f6ce6ffe3a566e997bc9757790786aa51f5aaa2fa321a990729ff55ec7f"
+    },
+    {
+      "path": "AFIMS_RUNNER_INTEGRATION_REPORT.json",
+      "size": 1420,
+      "sha256": "6a81ec9759b93a2ba591b4e498cdfa9d36f2a427f8fae5730df53767aaa345a7"
+    },
+    {
+      "path": "AFIMS_RUNNER_INTEGRATION_REPORT.md",
+      "size": 1356,
+      "sha256": "222807cfbace1f656b0f4e25efe6f1329ef9cb5cb51a28c97c13a877dc420c07"
     },
     {
       "path": "Dockerfile",
@@ -35,6 +75,16 @@
       "path": "EXTERNAL_EVIDENCE_REPORT.md",
       "size": 2956,
       "sha256": "e77bb93460962f0f67e8a342513b42dbda36a48df14e79116a7fdb2cfc0b2198"
+    },
+    {
+      "path": "EXTERNAL_GATE_PREFLIGHT.json",
+      "size": 2247,
+      "sha256": "97a5051b92a4fe6b7e1ae5cda6d634ff14bc50ce7a400e83d4136b147c12f8dd"
+    },
+    {
+      "path": "EXTERNAL_GATE_PREFLIGHT.md",
+      "size": 2809,
+      "sha256": "e4c76ca5b01eccf61fd0833581cfea4b4ba8a8b6dbc624a14bf387871fe66eb6"
     },
     {
       "path": "README.md",
