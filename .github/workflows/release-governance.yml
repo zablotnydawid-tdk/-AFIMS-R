@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  IMAGE: ghcr.io/${{ github.repository }}
+  IMAGE: ghcr.io/zablotnydawid-tdk/afims-r
   MINIO_BUCKET: ${{ vars.MINIO_BUCKET }}
   OPA_VERSION: v1.18.2
   OPA_LINUX_AMD64_STATIC_SHA256: 9903e5125ac281104f2c4b7371d10cc3b74a98933743fcbfc174f9bf0ab20de8
@@ -65,6 +65,26 @@ jobs:
       - name: Build and push exact image
         id: image
         run: |
+          expected_image="ghcr.io/zablotnydawid-tdk/afims-r"
+          test "$IMAGE" = "$expected_image"
+          test "$IMAGE" = "$(printf '%s' "$IMAGE" | tr '[:upper:]' '[:lower:]')"
+          case "$GITHUB_SHA" in
+            ????????????????????????????????????????) ;;
+            *) exit 1 ;;
+          esac
+          case "$GITHUB_SHA" in
+            *[!0-9a-f]*) exit 1 ;;
+          esac
+          image_path="${IMAGE#ghcr.io/}"
+          test "$image_path" != "$IMAGE"
+          owner="${image_path%%/*}"
+          package="${image_path#*/}"
+          test "$package" != "$image_path"
+          for component in "$owner" "$package"; do
+            test -n "$component"
+            case "$component" in [-_.]*) exit 1 ;; esac
+            case "$component" in *[!a-z0-9._-]*) exit 1 ;; esac
+          done
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
           docker build --label org.opencontainers.image.revision="$GITHUB_SHA" -t "$IMAGE:$GITHUB_SHA" .
           docker push "$IMAGE:$GITHUB_SHA"
