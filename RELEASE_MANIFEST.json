@@ -53,13 +53,13 @@
     },
     {
       "path": "AFIMS_RUNNER_INTEGRATION_REPORT.json",
-      "size": 1420,
-      "sha256": "6a81ec9759b93a2ba591b4e498cdfa9d36f2a427f8fae5730df53767aaa345a7"
+      "size": 849,
+      "sha256": "73f3f536b5f34330af1c0a23bb683f02b0785c566af8d609604331311f1ff49e"
     },
     {
       "path": "AFIMS_RUNNER_INTEGRATION_REPORT.md",
-      "size": 1356,
-      "sha256": "222807cfbace1f656b0f4e25efe6f1329ef9cb5cb51a28c97c13a877dc420c07"
+      "size": 840,
+      "sha256": "4e285c6fcc53700b2fb50e1198f93079c87a9cd6bdb3cbf0de31c38c042b8c48"
     },
     {
       "path": "Dockerfile",
@@ -78,13 +78,13 @@
     },
     {
       "path": "EXTERNAL_GATE_PREFLIGHT.json",
-      "size": 2247,
-      "sha256": "97a5051b92a4fe6b7e1ae5cda6d634ff14bc50ce7a400e83d4136b147c12f8dd"
+      "size": 1726,
+      "sha256": "747d95572a8c11d4b638cc1129e71d0ed43d7e1ba865eaffc11e2fbaef16c519"
     },
     {
       "path": "EXTERNAL_GATE_PREFLIGHT.md",
-      "size": 2809,
-      "sha256": "e4c76ca5b01eccf61fd0833581cfea4b4ba8a8b6dbc624a14bf387871fe66eb6"
+      "size": 1506,
+      "sha256": "eddecab1516cc91ca12d2aa4c737a35a775c6443c3ff3a55974c13aaaaa4977e"
     },
     {
       "path": "README.md",

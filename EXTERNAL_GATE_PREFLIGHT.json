@@ -1,17 +1,19 @@
 {
   "repository": "zablotnydawid-tdk/-AFIMS-R",
-  "workflow_id": 313374566,
-  "workflow_registered": "PRESENT",
-  "workflow_dispatch_available": "PRESENT",
-  "actions_permissions": {
-    "actions_enabled": "PASS",
-    "workflow_permissions": "BLOCKED_UNVERIFIED",
-    "ability_to_publish_to_ghcr": "BLOCKED_UNVERIFIED",
-    "id_token_permission_allowed": "BLOCKED_UNVERIFIED"
-  },
-  "environments": {
-    "release-archive": "MISSING",
-    "release-certification": "MISSING"
+  "runner_registered": "NOT_EXECUTED",
+  "runner_name": "BLOCKED_UNVERIFIED",
+  "runner_status": "BLOCKED_UNVERIFIED",
+  "runner_labels": [
+    "self-hosted",
+    "linux",
+    "x64",
+    "afims-release"
+  ],
+  "runner_service": "NOT_EXECUTED",
+  "runner_minio_connectivity": "PASS",
+  "github_environments": {
+    "release-archive": "PRESENT",
+    "release-certification": "PRESENT"
   },
   "secrets": {
     "MINIO_ENDPOINT": "BLOCKED_UNVERIFIED",
@@ -23,42 +25,35 @@
     "COSIGN_CERTIFICATE_IDENTITY_REGEXP": "BLOCKED_UNVERIFIED",
     "COSIGN_CERTIFICATE_OIDC_ISSUER": "BLOCKED_UNVERIFIED"
   },
-  "minio": {
-    "endpoint_reachable": "NOT_EXECUTED",
-    "bucket_exists": "NOT_EXECUTED",
-    "versioning_enabled": "NOT_EXECUTED",
-    "object_lock_enabled": "NOT_EXECUTED",
-    "default_retention_mode_compliance": "NOT_EXECUTED",
-    "write_credentials_valid": "NOT_EXECUTED",
-    "read_back_possible": "NOT_EXECUTED"
-  },
   "ghcr": {
     "package_write_available": "BLOCKED_UNVERIFIED",
-    "github_token_permissions_sufficient": "BLOCKED_UNVERIFIED"
+    "github_token_permissions_sufficient": "BLOCKED_UNVERIFIED",
+    "packages_write_declared_in_workflow": "PRESENT"
+  },
+  "oidc": {
+    "id_token_write_declared_in_workflow": "PRESENT",
+    "identity_regexp_configured": "BLOCKED_UNVERIFIED",
+    "issuer_configured": "BLOCKED_UNVERIFIED"
+  },
+  "minio": {
+    "endpoint_reachable": "PASS",
+    "object_lock": "PASS",
+    "versioning": "PASS",
+    "compliance": "PASS",
+    "upload_read_back": "PASS",
+    "hash_match": "PASS",
+    "version_id": "PRESENT",
+    "retain_until": "PRESENT"
   },
   "workflow_integrity": {
-    "all_actions_pinned_to_full_sha": "PASS",
-    "downloaded_opa_version_pinned": "PASS",
-    "downloaded_minio_client_version_pinned": "PASS",
-    "downloaded_binaries_verified_by_sha256": "PASS",
-    "exact_github_sha_checkout": "PASS",
-    "rg_026_implemented": "PASS",
-    "rg_027_implemented": "PASS",
-    "keyless_cosign_identity_and_issuer_verification_configured": "PRESENT"
+    "exact_sha_checkout": "PASS",
+    "pinned_actions": "PASS",
+    "workflow_dispatch_only": "PASS",
+    "afims_release_runner_declared": "PASS"
   },
   "ready_to_dispatch": "FAIL",
   "external_gate": "BLOCKED",
   "l3_granted": false,
   "l4_granted": false,
-  "evidence": {
-    "workflow_state": "active",
-    "workflow_path": ".github/workflows/release-governance.yml",
-    "actions_permissions_api": "BLOCKED_UNVERIFIED",
-    "environments_api_total_count": 0,
-    "secrets_api": "BLOCKED_UNVERIFIED",
-    "variables_api": "BLOCKED_UNVERIFIED",
-    "workflow_integrity_action_uses_count": 12,
-    "workflow_integrity_sha_pinned_count": 12
-  },
   "final_verdict": "EXTERNAL_GATE_PREFLIGHT_BLOCKED"
 }

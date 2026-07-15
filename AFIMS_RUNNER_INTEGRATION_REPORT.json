@@ -1,44 +1,26 @@
 {
-  "runner_dir": "/mnt/c/TDK/AFIMS-INFRA/runner",
+  "repository": "zablotnydawid-tdk/-AFIMS-R",
   "runner_registered": "NOT_EXECUTED",
-  "registration_token": "BLOCKED_UNVERIFIED",
-  "labels": [
+  "runner_name": "BLOCKED_UNVERIFIED",
+  "runner_status": "BLOCKED_UNVERIFIED",
+  "runner_labels": [
     "self-hosted",
     "linux",
     "x64",
     "afims-release"
   ],
-  "pull_request_workflows_allowed": "FAIL",
-  "recommended_user": "afims-runner",
-  "current_wsl_user": "root",
-  "current_wsl_user_acceptable_for_service": "FAIL",
-  "manual_registration_required": "PRESENT",
-  "manual_steps": [
-    "Create or select a constrained Linux user/context for AFIMS runner.",
-    "Download GitHub Actions runner from repository Settings > Actions > Runners.",
-    "Configure it for zablotnydawid-tdk/-AFIMS-R with labels self-hosted, linux, x64, afims-release.",
-    "Do not store the registration token in documentation or repository files.",
-    "Run only workflow_dispatch release governance jobs from approved refs."
-  ],
-  "github_configuration_map": {
-    "release-archive": {
-      "secrets": [
-        "MINIO_ENDPOINT",
-        "MINIO_ACCESS_KEY",
-        "MINIO_SECRET_KEY"
-      ],
-      "variables": [
-        "MINIO_BUCKET"
-      ]
-    },
-    "release-certification_or_repository_variables": [
-      "COSIGN_CERTIFICATE_IDENTITY_REGEXP",
-      "COSIGN_CERTIFICATE_OIDC_ISSUER"
-    ],
-    "values_source": "/mnt/c/TDK/AFIMS-INFRA/secrets/minio.env",
-    "values_disclosed": false
-  },
+  "runner_service": "NOT_EXECUTED",
+  "runner_directory": "/mnt/c/TDK/AFIMS-INFRA/runner",
+  "runner_directory_state": "EMPTY",
+  "runner_minio_connectivity": "PASS",
+  "registration_token": "BLOCKED_UNVERIFIED",
+  "registration_command_from_github_ui": "MISSING",
+  "runner_api": "BLOCKED_UNVERIFIED",
+  "runner_no_tdk_db_access": "BLOCKED_UNVERIFIED",
+  "runner_no_unrelated_tdk_secret_access": "BLOCKED_UNVERIFIED",
+  "restart_persistence": "NOT_EXECUTED",
   "external_gate": "BLOCKED",
   "l3_granted": false,
-  "l4_granted": false
+  "l4_granted": false,
+  "final_verdict": "AFIMS_RUNNER_REGISTRATION_BLOCKED"
 }
