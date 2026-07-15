@@ -1,0 +1,70 @@
+{
+  "comparison_scope": {
+    "v3_1": "AFIMS-T Release Governance v3.1 package",
+    "v3_2": "governance/release-governance-v3.2 in repository",
+    "v3_1_trust_status": "FAILED_SHA256_MATCH",
+    "v3_2_baseline_commit": "31dc77b09612524597295d84e32613a186cbfe30"
+  },
+  "matrix": {
+    "architecture": {
+      "generator": "REQUIRES_EXECUTION",
+      "validator": "REQUIRES_EXECUTION",
+      "certifier": "REQUIRES_EXECUTION",
+      "role_separation": "REQUIRES_EXECUTION",
+      "fail_closed": "REQUIRES_EXECUTION"
+    },
+    "governance": {
+      "schema_version": "INCOMPATIBLE",
+      "evidence_graph": "REQUIRES_EXECUTION",
+      "confidence_calculation": "REQUIRES_EXECUTION",
+      "critical_fail_handling": "REQUIRES_EXECUTION",
+      "maturity_assignment": "REQUIRES_EXECUTION",
+      "rg_026": "REQUIRES_EXECUTION",
+      "rg_027": "REQUIRES_EXECUTION"
+    },
+    "cosign": {
+      "mode": "REQUIRES_EXECUTION",
+      "oidc_identity": "REQUIRES_EXECUTION",
+      "oidc_issuer": "REQUIRES_EXECUTION",
+      "bundle_saved": "REQUIRES_EXECUTION",
+      "signature_verified": "REQUIRES_EXECUTION",
+      "verification_evidence_saved": "REQUIRES_EXECUTION"
+    },
+    "minio": {
+      "endpoint_contract": "REQUIRES_EXECUTION",
+      "bucket_contract": "REQUIRES_EXECUTION",
+      "versioning_check": "REQUIRES_EXECUTION",
+      "object_lock_check": "REQUIRES_EXECUTION",
+      "compliance_retention_check": "REQUIRES_EXECUTION",
+      "upload": "REQUIRES_EXECUTION",
+      "read_back": "REQUIRES_EXECUTION",
+      "hash_comparison": "REQUIRES_EXECUTION",
+      "version_id_capture": "REQUIRES_EXECUTION"
+    },
+    "github_actions": {
+      "triggers": "INCOMPATIBLE",
+      "environments": "INCOMPATIBLE",
+      "action_sha_pinning": "V3_2_IMPROVEMENT",
+      "runner_metadata_capture": "MISSING_IN_BOTH",
+      "artifact_upload": "V3_2_IMPROVEMENT",
+      "permissions": "V3_2_IMPROVEMENT"
+    }
+  },
+  "v3_1_unique_controls": [],
+  "v3_2_improvements": [
+    "GitHub Actions are pinned to full commit SHA values.",
+    "OPA and MinIO client downloads in v3.2 are tied to explicit versions and SHA-256 checks.",
+    "v3.2 separates generate-and-validate, archive-and-prove, and certify-sign-finalize jobs.",
+    "v3.2 requires exact checkout of GITHUB_SHA in release governance jobs.",
+    "v3.2 uploads generated, immutable, and certified evidence artifacts."
+  ],
+  "controls_to_port": [],
+  "port_decision": "NO_PORT_FROM_UNTRUSTED_PACKAGE",
+  "baseline_modified": false,
+  "integration_commit": null,
+  "external_execution": false,
+  "external_gate": "BLOCKED",
+  "l3_granted": false,
+  "l4_granted": false,
+  "final_verdict": "V3_1_PACKAGE_VALIDATION_FAIL"
+}
