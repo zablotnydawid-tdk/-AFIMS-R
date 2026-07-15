@@ -1,4 +1,4 @@
-name: Release Governance v3.2
+name: AFIMS-R Release Governance v3.2 Registration Refresh
 
 on:
   workflow_dispatch:
