@@ -1,0 +1,55 @@
+# External Gate Preflight
+
+```yaml
+repository: zablotnydawid-tdk/-AFIMS-R
+runner_registered: NOT_EXECUTED
+runner_name: BLOCKED_UNVERIFIED
+runner_status: BLOCKED_UNVERIFIED
+runner_labels:
+  - self-hosted
+  - linux
+  - x64
+  - afims-release
+runner_service: NOT_EXECUTED
+runner_minio_connectivity: PASS
+github_environments:
+  release-archive: PRESENT
+  release-certification: PRESENT
+secrets:
+  MINIO_ENDPOINT: BLOCKED_UNVERIFIED
+  MINIO_ACCESS_KEY: BLOCKED_UNVERIFIED
+  MINIO_SECRET_KEY: BLOCKED_UNVERIFIED
+variables:
+  MINIO_BUCKET: BLOCKED_UNVERIFIED
+  COSIGN_CERTIFICATE_IDENTITY_REGEXP: BLOCKED_UNVERIFIED
+  COSIGN_CERTIFICATE_OIDC_ISSUER: BLOCKED_UNVERIFIED
+ghcr:
+  package_write_available: BLOCKED_UNVERIFIED
+  github_token_permissions_sufficient: BLOCKED_UNVERIFIED
+  packages_write_declared_in_workflow: PRESENT
+oidc:
+  id_token_write_declared_in_workflow: PRESENT
+  identity_regexp_configured: BLOCKED_UNVERIFIED
+  issuer_configured: BLOCKED_UNVERIFIED
+minio:
+  endpoint_reachable: PASS
+  object_lock: PASS
+  versioning: PASS
+  compliance: PASS
+  upload_read_back: PASS
+  hash_match: PASS
+  version_id: PRESENT
+  retain_until: PRESENT
+workflow_integrity:
+  exact_sha_checkout: PASS
+  pinned_actions: PASS
+  workflow_dispatch_only: PASS
+  afims_release_runner_declared: PASS
+ready_to_dispatch: FAIL
+external_gate: BLOCKED
+l3_granted: false
+l4_granted: false
+final_verdict: EXTERNAL_GATE_PREFLIGHT_BLOCKED
+```
+
+No registration token or secret value is included. Release Governance was not dispatched.

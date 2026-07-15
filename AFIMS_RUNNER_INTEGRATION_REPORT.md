@@ -1,0 +1,29 @@
+# Afims Runner Integration Report
+
+```yaml
+repository: zablotnydawid-tdk/-AFIMS-R
+runner_registered: NOT_EXECUTED
+runner_name: BLOCKED_UNVERIFIED
+runner_status: BLOCKED_UNVERIFIED
+runner_labels:
+  - self-hosted
+  - linux
+  - x64
+  - afims-release
+runner_service: NOT_EXECUTED
+runner_directory: /mnt/c/TDK/AFIMS-INFRA/runner
+runner_directory_state: EMPTY
+runner_minio_connectivity: PASS
+registration_token: BLOCKED_UNVERIFIED
+registration_command_from_github_ui: MISSING
+runner_api: BLOCKED_UNVERIFIED
+runner_no_tdk_db_access: BLOCKED_UNVERIFIED
+runner_no_unrelated_tdk_secret_access: BLOCKED_UNVERIFIED
+restart_persistence: NOT_EXECUTED
+external_gate: BLOCKED
+l3_granted: false
+l4_granted: false
+final_verdict: AFIMS_RUNNER_REGISTRATION_BLOCKED
+```
+
+No registration token or secret value is included. Release Governance was not dispatched.

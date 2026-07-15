@@ -4,7 +4,7 @@
   "version": "0.4.0",
   "created_at": "1970-01-01T00:00:00+00:00",
   "source_package_sha256": "1d1382c2905ecf9f1afe1b2600041042107877bc9d9089f10a0e44cd5a82fdd8",
-  "file_count": 175,
+  "file_count": 187,
   "files": [
     {
       "path": ".github/workflows/afims-check.yml",
@@ -13,13 +13,63 @@
     },
     {
       "path": ".github/workflows/release-governance.yml",
-      "size": 15178,
-      "sha256": "36c493676403d0f87f5eb9ffa80ded0eb1e420f86ef21d9810c3b28fb94b36bb"
+      "size": 15236,
+      "sha256": "1eea070cebccbafc9a9aa1712e4152c83a0b432b58084046366f2b8a013c84bf"
     },
     {
       "path": ".gitignore",
       "size": 38,
       "sha256": "599e8d09a18b6bac6f70ed12bf96f67e49c4d992ee2601bc173d92fbcb64b11d"
+    },
+    {
+      "path": "AFIMS_LOCAL_INFRASTRUCTURE_PREFLIGHT.json",
+      "size": 826,
+      "sha256": "84cc01c047e8ea6c84d3aa1bf13db0815c9407dbb204e66d96ecb230e5eeaaf7"
+    },
+    {
+      "path": "AFIMS_LOCAL_INFRASTRUCTURE_PREFLIGHT.md",
+      "size": 769,
+      "sha256": "f728d538dcea411052f59074d596782281525113f515933dec7848af442becfc"
+    },
+    {
+      "path": "AFIMS_LOCAL_TRUST_ISLAND_PLAN.json",
+      "size": 962,
+      "sha256": "6d49ad53768959d11ce5df63b0c3b1404735a75cf1d079998d8fa11ac5fbdf17"
+    },
+    {
+      "path": "AFIMS_LOCAL_TRUST_ISLAND_PLAN.md",
+      "size": 907,
+      "sha256": "cb44b5c8155e45c3df608a8d29ac76b5a8a54800d145ea08736446efcb5b5e13"
+    },
+    {
+      "path": "AFIMS_MINIO_DEPLOYMENT_REPORT.json",
+      "size": 1224,
+      "sha256": "254f553a8b0c80dc80ee41ff1def77d1541481430d6c9da3c499eb86e01daf16"
+    },
+    {
+      "path": "AFIMS_MINIO_DEPLOYMENT_REPORT.md",
+      "size": 1174,
+      "sha256": "355706f4b1994ab70b7606cfd5c49dc9a8778416c95e1c7f3435dc989360de75"
+    },
+    {
+      "path": "AFIMS_RUNNER_INTEGRATION_REPORT.json",
+      "size": 849,
+      "sha256": "73f3f536b5f34330af1c0a23bb683f02b0785c566af8d609604331311f1ff49e"
+    },
+    {
+      "path": "AFIMS_RUNNER_INTEGRATION_REPORT.md",
+      "size": 840,
+      "sha256": "4e285c6fcc53700b2fb50e1198f93079c87a9cd6bdb3cbf0de31c38c042b8c48"
+    },
+    {
+      "path": "AFIMS_SECRET_INCIDENT_REPORT.json",
+      "size": 610,
+      "sha256": "9d3b0e1119903c045d0b18cff6b85adfed8fd3e9f6885bce89b2780b8651087f"
+    },
+    {
+      "path": "AFIMS_SECRET_INCIDENT_REPORT.md",
+      "size": 545,
+      "sha256": "4186f206f09c94eb5583cfafb8babcba18e82782dd4c69a07af4de12e1fcae83"
     },
     {
       "path": "Dockerfile",
@@ -35,6 +85,16 @@
       "path": "EXTERNAL_EVIDENCE_REPORT.md",
       "size": 2956,
       "sha256": "e77bb93460962f0f67e8a342513b42dbda36a48df14e79116a7fdb2cfc0b2198"
+    },
+    {
+      "path": "EXTERNAL_GATE_PREFLIGHT.json",
+      "size": 1726,
+      "sha256": "747d95572a8c11d4b638cc1129e71d0ed43d7e1ba865eaffc11e2fbaef16c519"
+    },
+    {
+      "path": "EXTERNAL_GATE_PREFLIGHT.md",
+      "size": 1506,
+      "sha256": "eddecab1516cc91ca12d2aa4c737a35a775c6443c3ff3a55974c13aaaaa4977e"
     },
     {
       "path": "README.md",
