@@ -33,23 +33,23 @@
     },
     {
       "path": "AFIMS_LOCAL_TRUST_ISLAND_PLAN.json",
-      "size": 952,
-      "sha256": "a657887302493d83023f34ba64d79aabdebb452d6515105170b142abd95c2a3c"
+      "size": 962,
+      "sha256": "6d49ad53768959d11ce5df63b0c3b1404735a75cf1d079998d8fa11ac5fbdf17"
     },
     {
       "path": "AFIMS_LOCAL_TRUST_ISLAND_PLAN.md",
-      "size": 897,
-      "sha256": "69234b527c29bcfa9ea8af5212677605f3c982168dbc3cb5f7ccae1da737d731"
+      "size": 907,
+      "sha256": "cb44b5c8155e45c3df608a8d29ac76b5a8a54800d145ea08736446efcb5b5e13"
     },
     {
       "path": "AFIMS_MINIO_DEPLOYMENT_REPORT.json",
-      "size": 1214,
-      "sha256": "4b5492877b46a45dacc1ce4014fc05b3fab8bafa7e626ab9ed5e33313e96cc67"
+      "size": 1224,
+      "sha256": "254f553a8b0c80dc80ee41ff1def77d1541481430d6c9da3c499eb86e01daf16"
     },
     {
       "path": "AFIMS_MINIO_DEPLOYMENT_REPORT.md",
-      "size": 1164,
-      "sha256": "77524f6ce6ffe3a566e997bc9757790786aa51f5aaa2fa321a990729ff55ec7f"
+      "size": 1174,
+      "sha256": "355706f4b1994ab70b7606cfd5c49dc9a8778416c95e1c7f3435dc989360de75"
     },
     {
       "path": "AFIMS_RUNNER_INTEGRATION_REPORT.json",

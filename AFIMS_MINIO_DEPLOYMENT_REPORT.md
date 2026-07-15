@@ -19,7 +19,7 @@ object_lock: PASS
 versioning: PASS
 default_retention_mode: COMPLIANCE
 default_retention_days: 30
-service_account: afims-certifier
+service_account: REDACTED_MINIO_ACCESS_KEY
 upload: PASS
 read_back: PASS
 upload_hash: 26abfe95488b6baac954500ac6015df9a6178f2c23beebc058bca5bcd8758757

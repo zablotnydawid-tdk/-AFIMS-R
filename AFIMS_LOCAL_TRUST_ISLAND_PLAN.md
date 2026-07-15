@@ -8,7 +8,7 @@ container: afims-minio
 network: afims-trust-net
 volume: afims-minio-data
 bucket: afims-release-evidence
-service_account: afims-certifier
+service_account: REDACTED_MINIO_ACCESS_KEY
 ports:
   s3_api: 127.0.0.1:9010
   console: 127.0.0.1:9011
