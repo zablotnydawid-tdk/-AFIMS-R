@@ -200,15 +200,53 @@ jobs:
           name: immutable-evidence-proof
 
       - name: Install certifier tools
+        shell: bash
         run: |
-          sudo apt-get update && sudo apt-get install -y jq python3-pip
-          pip install --disable-pip-version-check jsonschema==4.25.1 pyyaml==6.0.2
+          set -euo pipefail
+
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends jq python3-venv
+
+          CERTIFIER_VENV="${RUNNER_TEMP}/afims-certifier-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          rm -rf "$CERTIFIER_VENV"
+          python3 -m venv "$CERTIFIER_VENV"
+
+          "$CERTIFIER_VENV/bin/python" -m pip install \
+            --disable-pip-version-check \
+            --require-hashes \
+            -r governance/release-governance-v3.2/requirements-certifier.lock
+
+          printf '%s\n' "$CERTIFIER_VENV/bin" >> "$GITHUB_PATH"
+
           curl -fsSL -o /usr/local/bin/opa "https://github.com/open-policy-agent/opa/releases/download/${OPA_VERSION}/opa_linux_amd64_static"
           echo "${OPA_LINUX_AMD64_STATIC_SHA256}  /usr/local/bin/opa" | sha256sum -c -
           chmod +x /usr/local/bin/opa
           curl -fsSL "https://dl.min.io/client/mc/release/linux-amd64/archive/mc.${MC_RELEASE}" -o /usr/local/bin/mc
           echo "${MC_LINUX_AMD64_SHA256}  /usr/local/bin/mc" | sha256sum -c -
           chmod +x /usr/local/bin/mc
+
+      - name: Verify certifier Python isolation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import sys
+          import jsonschema
+          import yaml
+
+          assert sys.prefix != sys.base_prefix, "certifier Python is not isolated"
+          print("CERTIFIER_VENV_ISOLATION_PASS")
+          print("python=" + sys.version.split()[0])
+          print("jsonschema=" + jsonschema.__version__)
+          print("pyyaml=" + yaml.__version__)
+          PY
+
+          command -v python3
+          command -v opa
+          command -v mc
+          opa version
+          mc --version
+
       - uses: sigstore/cosign-installer@398d4b0eeef1380460a10c8013a76f728fb906ac
 
       - name: Assemble final policy input
