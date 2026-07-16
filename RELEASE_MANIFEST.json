@@ -4,7 +4,7 @@
   "version": "0.4.0",
   "created_at": "1970-01-01T00:00:00+00:00",
   "source_package_sha256": "1d1382c2905ecf9f1afe1b2600041042107877bc9d9089f10a0e44cd5a82fdd8",
-  "file_count": 187,
+  "file_count": 195,
   "files": [
     {
       "path": ".github/workflows/afims-check.yml",
@@ -13,8 +13,8 @@
     },
     {
       "path": ".github/workflows/release-governance.yml",
-      "size": 16051,
-      "sha256": "15b242186078a79ab24d37feb1ff95009259cab4794c1be92a1b1af58e56af16"
+      "size": 18557,
+      "sha256": "31ef5d56464affa366eca4717c32d654235c342aeb7b3f3be3f7d1efc5c2927f"
     },
     {
       "path": ".gitignore",
@@ -52,6 +52,11 @@
       "sha256": "355706f4b1994ab70b7606cfd5c49dc9a8778416c95e1c7f3435dc989360de75"
     },
     {
+      "path": "AFIMS_REMEDIATED_IMAGE_SBOM.spdx.json",
+      "size": 99296,
+      "sha256": "eb2f1ce11357cacb8932a830f46755471471a80f29b880922928f08d2b43459d"
+    },
+    {
       "path": "AFIMS_RUNNER_INTEGRATION_REPORT.json",
       "size": 849,
       "sha256": "73f3f536b5f34330af1c0a23bb683f02b0785c566af8d609604331311f1ff49e"
@@ -72,9 +77,39 @@
       "sha256": "68eb6f6c52614a32f354c03126ad413a50028b309bfc464efa56c427664e7793"
     },
     {
+      "path": "AFIMS_TRIVY_DB_METADATA.json",
+      "size": 153,
+      "sha256": "e12115a4061aeb53f707d6ecab152f44fd42a4b889049ac5f8b39d5a6722dba4"
+    },
+    {
+      "path": "AFIMS_TRIVY_EXACT_IMAGE_REPORT.json",
+      "size": 439436,
+      "sha256": "833f7eb8207ff88b0ab463e8bb2324d485e71cfd995933efdb322a4d3eb43fce"
+    },
+    {
+      "path": "AFIMS_TRIVY_EXACT_IMAGE_REPORT.txt",
+      "size": 46112,
+      "sha256": "98715860cf54f307be3a7527103787484b8782b1f555845c3095d6cd5c188eab"
+    },
+    {
+      "path": "AFIMS_TRIVY_FAILURE_ANALYSIS.json",
+      "size": 25676,
+      "sha256": "2fc70ab6b39b618c198694cbc464b18db284a591471217dd0849f59573cf8670"
+    },
+    {
+      "path": "AFIMS_TRIVY_FAILURE_ANALYSIS.md",
+      "size": 5629,
+      "sha256": "be860a6dbc267bec9782708ef6d764d92dab43a09a1ebbaff5299164042b94d7"
+    },
+    {
+      "path": "AFIMS_TRIVY_REMEDIATED_IMAGE_REPORT.json",
+      "size": 107388,
+      "sha256": "d9a68bbad7e1a2896938f72cf7114d77981fd4585c494cf0ffe8fb74158379bc"
+    },
+    {
       "path": "Dockerfile",
-      "size": 163,
-      "sha256": "93dff6df541e89d82c58cde4606301405489e0dd67377aab4337c0baf4d1a98a"
+      "size": 1219,
+      "sha256": "62fdf141289b2cfc81ce3769e071b5de86150bab35e0c37a69a160929ca2f601"
     },
     {
       "path": "EXTERNAL_EVIDENCE_REPORT.json",
@@ -855,6 +890,11 @@
       "path": "reports/groups/T9_REPORT.json",
       "size": 2514,
       "sha256": "08706fc9bc24ff95b59834c688c5300f1c87f693a4880459dffc24d1acd1e9f6"
+    },
+    {
+      "path": "requirements.lock",
+      "size": 264,
+      "sha256": "b6687618a08b0dd4db100685689b44972367fae4f472931be8eb368d0fd465c4"
     },
     {
       "path": "schemas/afims-t-fixture.schema.json",

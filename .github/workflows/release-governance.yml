@@ -62,8 +62,7 @@ jobs:
           cd governance/release-governance-v3.2
           sha256sum -c SHA256SUMS.txt
 
-      - name: Build and push exact image
-        id: image
+      - name: Validate image reference
         run: |
           expected_image="ghcr.io/zablotnydawid-tdk/afims-r"
           test "$IMAGE" = "$expected_image"
@@ -85,38 +84,85 @@ jobs:
             case "$component" in [-_.]*) exit 1 ;; esac
             case "$component" in *[!a-z0-9._-]*) exit 1 ;; esac
           done
-          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+
+      - name: Build exact image locally
+        id: local_image
+        run: |
           docker build --label org.opencontainers.image.revision="$GITHUB_SHA" -t "$IMAGE:$GITHUB_SHA" .
-          docker push "$IMAGE:$GITHUB_SHA"
-          digest=$(docker inspect --format='{{index .RepoDigests 0}}' "$IMAGE:$GITHUB_SHA" | cut -d@ -f2)
-          test -n "$digest"
-          echo "digest=$digest" >> "$GITHUB_OUTPUT"
+          local_id=$(docker image inspect --format='{{.Id}}' "$IMAGE:$GITHUB_SHA")
+          test -n "$local_id"
+          revision=$(docker image inspect --format='{{ index .Config.Labels "org.opencontainers.image.revision" }}' "$IMAGE:$GITHUB_SHA")
+          test "$revision" = "$GITHUB_SHA"
+          mkdir -p evidence
+          printf '%s\n' "$IMAGE:$GITHUB_SHA" > evidence/scanned-image.txt
+          printf '%s\n' "$local_id" > evidence/local-image-id.txt
+          printf '%s\n' "$GITHUB_SHA" > evidence/target-commit.txt
+          echo "local_id=$local_id" >> "$GITHUB_OUTPUT"
 
       - uses: anchore/sbom-action@e22c389904149dbc22b58101806040fa8d37a610
         with:
-          image: ${{ env.IMAGE }}@${{ steps.image.outputs.digest }}
+          image: ${{ env.IMAGE }}:${{ github.sha }}
           format: spdx-json
           output-file: evidence/sbom.spdx.json
 
-      - name: Generate provenance evidence
-        run: |
-          jq -n \
-            --arg repository "$GITHUB_REPOSITORY" \
-            --arg commit "$GITHUB_SHA" \
-            --arg image "$IMAGE" \
-            --arg digest "${{ steps.image.outputs.digest }}" \
-            --arg run_id "$GITHUB_RUN_ID" \
-            '{repository:$repository,commit_sha:$commit,
-              image:{reference:$image,digest:$digest},github_run_id:$run_id}' \
-            > evidence/provenance.json
-
       - uses: aquasecurity/trivy-action@c07df6fec6fa692e6fd1200d50aaa1fdd66f03c8
         with:
-          image-ref: ${{ env.IMAGE }}@${{ steps.image.outputs.digest }}
+          image-ref: ${{ env.IMAGE }}:${{ github.sha }}
+          scan-type: image
           format: json
           output: evidence/vulnerability.json
           severity: CRITICAL,HIGH
-          exit-code: "1"
+          exit-code: "0"
+          ignore-unfixed: false
+          vuln-type: os,library
+          cache-dir: .cache/trivy
+
+      - name: Record vulnerability scan metadata
+        if: always()
+        run: |
+          mkdir -p evidence
+          trivy --version > evidence/trivy-version.txt || true
+          cp .cache/trivy/db/metadata.json evidence/trivy-db-metadata.json || true
+          printf '%s\n' "$IMAGE:$GITHUB_SHA" > evidence/scanned-image.txt
+          docker image inspect --format='{{.Id}}' "$IMAGE:$GITHUB_SHA" > evidence/local-image-id.txt || true
+          printf '%s\n' "$GITHUB_SHA" > evidence/target-commit.txt
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: vulnerability-scan-evidence
+          if-no-files-found: warn
+          path: |
+            evidence/vulnerability.json
+            evidence/trivy-version.txt
+            evidence/trivy-db-metadata.json
+            evidence/scanned-image.txt
+            evidence/local-image-id.txt
+            evidence/target-commit.txt
+
+      - name: Enforce vulnerability gate
+        run: |
+          test -s evidence/vulnerability.json
+          jq empty evidence/vulnerability.json
+          count=$(jq '[.Results[]?.Vulnerabilities[]? | select(.Severity == "HIGH" or .Severity == "CRITICAL")] | length' evidence/vulnerability.json)
+          test "$count" -eq 0
+
+      - name: Push scanned exact image
+        id: image
+        run: |
+          test "$(docker image inspect --format='{{.Id}}' "$IMAGE:$GITHUB_SHA")" = "${{ steps.local_image.outputs.local_id }}"
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+          docker push "$IMAGE:$GITHUB_SHA"
+          digest=$(docker inspect --format='{{index .RepoDigests 0}}' "$IMAGE:$GITHUB_SHA" | cut -d@ -f2)
+          test -n "$digest"
+          revision=$(docker image inspect --format='{{ index .Config.Labels "org.opencontainers.image.revision" }}' "$IMAGE:$GITHUB_SHA")
+          test "$revision" = "$GITHUB_SHA"
+          echo "digest=$digest" >> "$GITHUB_OUTPUT"
+
+      - name: Generate provenance evidence
+        run: |
+          jq -n             --arg repository "$GITHUB_REPOSITORY"             --arg commit "$GITHUB_SHA"             --arg image "$IMAGE"             --arg digest "${{ steps.image.outputs.digest }}"             --arg local_image_id "${{ steps.local_image.outputs.local_id }}"             --arg run_id "$GITHUB_RUN_ID"             '{repository:$repository,commit_sha:$commit,
+              image:{reference:$image,digest:$digest,local_image_id:$local_image_id},github_run_id:$run_id}'             > evidence/provenance.json
 
       - name: Build pre-archive input
         run: |
