@@ -393,15 +393,67 @@ jobs:
           MINIO_ACCESS_KEY: ${{ secrets.MINIO_ACCESS_KEY }}
           MINIO_SECRET_KEY: ${{ secrets.MINIO_SECRET_KEY }}
         run: |
+          set -euo pipefail
+
           mc alias set worm "$MINIO_ENDPOINT" "$MINIO_ACCESS_KEY" "$MINIO_SECRET_KEY"
           prefix="${GITHUB_REPOSITORY}/${GITHUB_SHA}/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/final"
-          for f in release-decision.json release-decision.yaml release-decision.sha256 \
-                   release-decision.sigstore.json opa-result.json metrics.json archive-evidence.json; do
+          files=(
+            release-decision.json
+            release-decision.yaml
+            release-decision.sha256
+            release-decision.sigstore.json
+            opa-result.json
+            metrics.json
+            archive-evidence.json
+          )
+
+          mkdir -p final-archive-evidence/objects
+          : > final-archive-evidence/objects.jsonl
+
+          for f in "${files[@]}"; do
+            test -s "$f"
             mc cp --attr "commit=${GITHUB_SHA};run=${GITHUB_RUN_ID}" "$f" "worm/$MINIO_BUCKET/$prefix/$f"
+            expected=$(sha256sum "$f" | awk '{print $1}')
+            evidence_file="final-archive-evidence/objects/${f}.json"
+            bash governance/release-governance-v3.2/scripts/verify-minio-retention.sh               worm "$MINIO_BUCKET/$prefix/$f" "$expected" "$evidence_file"
+            cat "$evidence_file" >> final-archive-evidence/objects.jsonl
           done
-          expected=$(awk '{print $1}' release-decision.sha256)
-          bash governance/release-governance-v3.2/scripts/verify-minio-retention.sh \
-            worm "$MINIO_BUCKET/$prefix/release-decision.json" "$expected"
+
+          jq -s             --arg run_id "$GITHUB_RUN_ID"             --arg run_attempt "$GITHUB_RUN_ATTEMPT"             --arg commit_sha "$GITHUB_SHA"             --arg prefix "$prefix"             '{
+              schema_version:"1.0",
+              run_id:$run_id,
+              run_attempt:$run_attempt,
+              commit_sha:$commit_sha,
+              prefix:$prefix,
+              objects:.,
+              all_objects_read_back: all(.[]; .exact_version_read_back == true),
+              all_hashes_match: all(.[]; .hash_match == true),
+              all_versions_recorded: all(.[]; (.version_id | type == "string" and length > 0)),
+              all_objects_compliance_locked: all(.[]; .retention_verified == true and .retention_mode == "COMPLIANCE")
+            }' final-archive-evidence/objects.jsonl > final-archive-evidence.json
+
+          jq -e '
+            .all_objects_read_back == true and
+            .all_hashes_match == true and
+            .all_versions_recorded == true and
+            .all_objects_compliance_locked == true
+          ' final-archive-evidence.json >/dev/null
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: finalization-attempt-evidence
+          if-no-files-found: warn
+          path: |
+            release-decision.json
+            release-decision.yaml
+            release-decision.sha256
+            release-decision.sigstore.json
+            opa-result.json
+            metrics.json
+            archive-evidence.json
+            final-archive-evidence.json
+            final-archive-evidence/objects/*.json
 
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
@@ -415,3 +467,4 @@ jobs:
             opa-result.json
             metrics.json
             archive-evidence.json
+            final-archive-evidence.json
