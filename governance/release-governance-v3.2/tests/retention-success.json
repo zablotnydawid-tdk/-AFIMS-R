@@ -1,0 +1,7 @@
+{
+  "status": "success",
+  "mode": "COMPLIANCE",
+  "until": "2099-01-01T00:00:00Z",
+  "urlpath": "worm/bucket/object",
+  "versionID": "test-version"
+}
