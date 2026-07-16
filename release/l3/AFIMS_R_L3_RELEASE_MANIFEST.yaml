@@ -1,0 +1,199 @@
+schema_version: '1.0'
+project: AFIMS-R
+repository: zablotnydawid-tdk/-AFIMS-R
+version_candidate: v0.4.0
+certified_release_candidate: v0.4.0-l3
+certification_scope: technical project AFIMS-R release certification from the repository
+  governance workflow
+certified_commit: 463b1c1e8dfdccdfe323b90ef62ab6661718b31c
+workflow:
+  name: AFIMS-R Release Governance v3.2 Registration Refresh
+  file: .github/workflows/release-governance.yml
+  run_id: '29473975758'
+  run_attempt: 1
+  event: workflow_dispatch
+  head_branch: main
+  head_sha: 463b1c1e8dfdccdfe323b90ef62ab6661718b31c
+  run_url: https://github.com/zablotnydawid-tdk/-AFIMS-R/actions/runs/29473975758
+  conclusion: success
+container:
+  image: ghcr.io/zablotnydawid-tdk/afims-r:463b1c1e8dfdccdfe323b90ef62ab6661718b31c
+  repository: ghcr.io/zablotnydawid-tdk/afims-r
+  tag: 463b1c1e8dfdccdfe323b90ef62ab6661718b31c
+  digest: sha256:f82746b2f67df70dd1ef4038d0c699da4b78c19d0915c9f63c01bd5b22659c17
+  local_image_id: sha256:16c3ae3c4b20e549329e113c47221a46dc981edbe33924c0b03446d8c8da9f44
+  revision_label: 463b1c1e8dfdccdfe323b90ef62ab6661718b31c
+  ghcr_tag_readable: true
+security_gate:
+  trivy_version: 'Version: 0.72.0'
+  critical_count: 0
+  high_count: 0
+  vulnerability_gate: PASS
+  sbom: PRESENT
+  provenance: PASS
+  rg_026: PASS
+  rg_027: PASS
+policy:
+  opa_decision: PASS
+  opa_reason_codes:
+  - ALL_REQUIRED_EVIDENCE_VERIFIED
+  - RG_026_TRUST_CHAIN_CONSISTENT
+  - RG_027_IMMUTABLE_EVIDENCE_VERIFIED
+  maturity_level: L3
+  confidence: 100
+  confidence_numerator: 9
+  confidence_denominator: 9
+cosign:
+  signature_created: true
+  signature_verified: true
+  bundle_file: release-decision.sigstore.json
+  certificate_identity: https://github.com/zablotnydawid-tdk/-AFIMS-R/.github/workflows/release-governance.yml@refs/heads/main
+  oidc_issuer: https://token.actions.githubusercontent.com
+  issuer: sigstore.dev / sigstore-intermediate
+minio_archive:
+  bucket: afims-release-evidence
+  initial_archive:
+    prefix: zablotnydawid-tdk/-AFIMS-R/463b1c1e8dfdccdfe323b90ef62ab6661718b31c/29473975758-1
+    object_lock_enabled: true
+    versioning_enabled: true
+    retention_mode: COMPLIANCE
+    readback_verified: true
+    object_count: 107
+  final_archive:
+    prefix: zablotnydawid-tdk/-AFIMS-R/463b1c1e8dfdccdfe323b90ef62ab6661718b31c/29473975758-1/final
+    object_count: 7
+    all_objects_read_back: true
+    all_hashes_match: true
+    all_versions_recorded: true
+    all_objects_compliance_locked: true
+    objects:
+    - path: afims-release-evidence/zablotnydawid-tdk/-AFIMS-R/463b1c1e8dfdccdfe323b90ef62ab6661718b31c/29473975758-1/final/release-decision.json
+      version_id_present: true
+      version_id: 74bcda05-dc0c-4620-8628-66e832e5784e
+      expected_sha256: 1a2e9cd4d135d238934fc353b46477df2efeb16124f62a43a7e188b63a8edbff
+      readback_sha256: 1a2e9cd4d135d238934fc353b46477df2efeb16124f62a43a7e188b63a8edbff
+      hash_match: true
+      retention_mode: COMPLIANCE
+      retain_until: '2026-08-15T05:36:09.872Z'
+      retention_verified: true
+      exact_version_read_back: true
+    - path: afims-release-evidence/zablotnydawid-tdk/-AFIMS-R/463b1c1e8dfdccdfe323b90ef62ab6661718b31c/29473975758-1/final/release-decision.yaml
+      version_id_present: true
+      version_id: 6e470871-2e8c-477a-9185-f3f082c569b7
+      expected_sha256: 274b89c8df5f3fa064aa3e49342db78e777eed6786346c36b71deee2ad53d5ea
+      readback_sha256: 274b89c8df5f3fa064aa3e49342db78e777eed6786346c36b71deee2ad53d5ea
+      hash_match: true
+      retention_mode: COMPLIANCE
+      retain_until: '2026-08-15T05:36:10.389Z'
+      retention_verified: true
+      exact_version_read_back: true
+    - path: afims-release-evidence/zablotnydawid-tdk/-AFIMS-R/463b1c1e8dfdccdfe323b90ef62ab6661718b31c/29473975758-1/final/release-decision.sha256
+      version_id_present: true
+      version_id: 65f9c2c9-1eab-4f03-b6b9-302efec84944
+      expected_sha256: 85c61b65b36f0d21267240e55ab622cb83359e64031d86e511c483be243991c4
+      readback_sha256: 85c61b65b36f0d21267240e55ab622cb83359e64031d86e511c483be243991c4
+      hash_match: true
+      retention_mode: COMPLIANCE
+      retain_until: '2026-08-15T05:36:10.911Z'
+      retention_verified: true
+      exact_version_read_back: true
+    - path: afims-release-evidence/zablotnydawid-tdk/-AFIMS-R/463b1c1e8dfdccdfe323b90ef62ab6661718b31c/29473975758-1/final/release-decision.sigstore.json
+      version_id_present: true
+      version_id: 840ca2e1-34d0-4b9c-9704-e2d285cbdc28
+      expected_sha256: e7d9871e4cb1ba737eced8aa696f8de8e71d57c09cdb0fe95cf69c824e7d7320
+      readback_sha256: e7d9871e4cb1ba737eced8aa696f8de8e71d57c09cdb0fe95cf69c824e7d7320
+      hash_match: true
+      retention_mode: COMPLIANCE
+      retain_until: '2026-08-15T05:36:11.39Z'
+      retention_verified: true
+      exact_version_read_back: true
+    - path: afims-release-evidence/zablotnydawid-tdk/-AFIMS-R/463b1c1e8dfdccdfe323b90ef62ab6661718b31c/29473975758-1/final/opa-result.json
+      version_id_present: true
+      version_id: 81f60fe8-05a4-40f8-9913-26d05f9956c2
+      expected_sha256: 2277c7a95c869335cd2b86bcaa8677258892a74a3abed55acfda6b99a8397bcc
+      readback_sha256: 2277c7a95c869335cd2b86bcaa8677258892a74a3abed55acfda6b99a8397bcc
+      hash_match: true
+      retention_mode: COMPLIANCE
+      retain_until: '2026-08-15T05:36:11.883Z'
+      retention_verified: true
+      exact_version_read_back: true
+    - path: afims-release-evidence/zablotnydawid-tdk/-AFIMS-R/463b1c1e8dfdccdfe323b90ef62ab6661718b31c/29473975758-1/final/metrics.json
+      version_id_present: true
+      version_id: 5b34d309-42dd-4261-a8f5-dfaf32e3881a
+      expected_sha256: 9b1c0a80da6ae7d2e799f1d80034cf499ad7452d76b564b536c2313fe42ca9ab
+      readback_sha256: 9b1c0a80da6ae7d2e799f1d80034cf499ad7452d76b564b536c2313fe42ca9ab
+      hash_match: true
+      retention_mode: COMPLIANCE
+      retain_until: '2026-08-15T05:36:12.369Z'
+      retention_verified: true
+      exact_version_read_back: true
+    - path: afims-release-evidence/zablotnydawid-tdk/-AFIMS-R/463b1c1e8dfdccdfe323b90ef62ab6661718b31c/29473975758-1/final/archive-evidence.json
+      version_id_present: true
+      version_id: fc66b98c-ffcb-4973-9ba5-49280ebf6105
+      expected_sha256: 89059748a4e04e57bc43b5519b42850bf99901e8bbebde28da6e3ed783a9a1ca
+      readback_sha256: 89059748a4e04e57bc43b5519b42850bf99901e8bbebde28da6e3ed783a9a1ca
+      hash_match: true
+      retention_mode: COMPLIANCE
+      retain_until: '2026-08-15T05:36:12.844Z'
+      retention_verified: true
+      exact_version_read_back: true
+artifacts:
+- name: certified-release-decision
+  digest: sha256:0c7c9d2eb8042e61d99ae19e7917a6ee147e5c33096e16e9ff75a3d443c72cb9
+  size_bytes: 25432
+- name: finalization-attempt-evidence
+  digest: sha256:71189bab745b015914fe1d74268902ec8885301bc7b75458fc5f96ff5f8f987c
+  size_bytes: 30976
+- name: immutable-evidence-proof
+  digest: sha256:3693ce0ec0355aff49300cb626eae6afc69efd2cd0914299f64da103a77fb022
+  size_bytes: 5026
+- name: generated-evidence
+  digest: sha256:1691c5f0e69d10a73534fbc1c62ffda53c68772f7543b3e3b525e3968fa42c67
+  size_bytes: 284433
+- name: vulnerability-scan-evidence
+  digest: sha256:067a9c3d611497108aa68b09ea57a88b060479d801383f60530c747cd42b6657
+  size_bytes: 16815
+- name: zablotnydawid-tdk-afims-r_463b1c1e8dfdccdfe323b90ef62ab6661718b31c.spdx.json
+  digest: sha256:4e4774dcc98f6eb9b36d5af2e91505b80859e2a9a1d167acf7213da099020e01
+  size_bytes: 93493
+release_decision:
+  json_sha256: 1a2e9cd4d135d238934fc353b46477df2efeb16124f62a43a7e188b63a8edbff
+  sha256_file_value: 1a2e9cd4d135d238934fc353b46477df2efeb16124f62a43a7e188b63a8edbff
+  json_valid: true
+  yaml_valid: true
+historical_fail_closed_runs:
+- run_id: '29457855374'
+  head_sha: ebe75109800453ff80ab61174cbe1f14f603e590
+  failure: executable mode failure
+  result: FAIL_CLOSED
+- run_id: '29458622529'
+  head_sha: 06ff4ac93f78bf185164f08d3450657de2fa9a88
+  failure: invalid GHCR reference
+  result: FAIL_CLOSED
+- run_id: '29460521533'
+  head_sha: fcad24029303959e91ed9ac464ba364575fabccf
+  failure: Trivy vulnerability gate failure
+  result: FAIL_CLOSED
+- run_id: '29464587625'
+  head_sha: 4eda3d13724ec85ccd7bc10d7e2767d6f519b983
+  failure: PEP 668 global pip failure
+  result: FAIL_CLOSED
+- run_id: '29467056881'
+  head_sha: ed52e65ecc8805903700130f895ac45bd69133f1
+  failure: final MinIO retention verifier false negative
+  result: FAIL_CLOSED
+claims:
+  l3_granted: true
+  l4_granted: false
+  external_gate: PASS_L3
+  release_published: false
+limitations:
+- This is a technical project AFIMS-R certification produced by the repository governance
+  workflow, not an external accredited certificate.
+- The self-hosted runner and MinIO evidence store are controlled by the repository
+  owner/operator.
+- L4 is not granted by this closure; the certified maturity level read from OPA and
+  release-decision.json is L3.
+- The GitHub Release and tag are proposed only and were not created by this preparation
+  step.
+prepared_at_utc: '2026-07-16T06:16:12Z'
